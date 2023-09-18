@@ -9,5 +9,11 @@ public class S_flightService {
 	public ArrayList<Flight> getreginfo(String fcode){
 		ArrayList<Flight> list = sdao.selectcheck(fcode);
 		return list;
+		 
 	} 
+	
+	public void deleteinfo(String fcode) {
+		sdao.deleteFlightinfo(fcode);
+	}
+	 
 }

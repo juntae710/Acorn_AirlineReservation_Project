@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-잘못된 입력
+삭제되었습니다.
 </body>
 </html>
