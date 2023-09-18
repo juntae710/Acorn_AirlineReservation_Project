@@ -71,6 +71,12 @@ public class Customer {
 	public Customer() {}
 	
 	
+	public Customer(String id) {
+		super();
+		this.id = id;
+	}
+	
+	
 	public Customer(String id, String pw, String name, String phone, String gender) {
 		super();
 		this.id = id;

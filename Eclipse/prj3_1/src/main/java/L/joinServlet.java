@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/join.do")
 public class joinServlet extends HttpServlet {
@@ -30,15 +31,16 @@ public class joinServlet extends HttpServlet {
 		resp.setContentType("text/html;charset=utf-8");
 		
 		
-		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
-		String name = req.getParameter("name");
-		String phone = req.getParameter("phone");
-		String gender = req.getParameter("gender");
+		String id = req.getParameter("userid");
+		String pw = req.getParameter("userpw");
+		String name = req.getParameter("username");
+		String phone = req.getParameter("userphone");
+		String gender = req.getParameter("usergender");
 		
 		
 		Customer customer = new Customer(id, pw, name, phone, gender);
 		joinService service = new joinService();
+	
 		
 		
 		try {
@@ -54,6 +56,12 @@ public class joinServlet extends HttpServlet {
 		
 		
 		
+	}
+
+
+	boolean isVaild(String id, String pw) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 
