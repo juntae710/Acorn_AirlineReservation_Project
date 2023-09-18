@@ -1,0 +1,95 @@
+select * from emp;
+
+
+create table customer_prj3(
+id varchar2(50) primary key,
+pw varchar2(50) not null,
+name varchar2(50) not null,
+phone varchar2(50) not null,
+pasno varchar2(50),
+gender varchar2(10) not null
+);
+
+insert into customer_prj3(id, pw, name, phone, gender) values('test01', 'pw1234', '이름', '01012345678', 'W');
+
+insert into customer_prj3(id, pw, name, phone, gender) values('test02', '0914', 'jun', '01011110914', 'm');
+
+DROP table customer_prj3;
+
+create table resvation_prj3(
+resno varchar2(50) primary key,
+fcode varchar2(50) not null,
+id varchar2(50)
+
+);
+
+
+drop table resvation_prj3;
+
+insert into resvation_prj3 values('123', 'K001', 'test01');
+insert into resvation_prj3 values('234', 'K002','test02');
+insert into resvation_prj3 values('124', 'K002', 'test01');
+
+
+create table flight_prj3(
+fcode varchar2(50) primary key,
+departure varchar2(50) not null,
+arrival varchar2(50) not null,
+sday date not null,
+eday date not null,
+stime varchar2(50) not null,
+etime varchar2(50) not null,
+airnum varchar2(50) not null --항공기코드
+);
+
+insert into flight_prj3 values('K001', '서울', '부산', '230914', '230914', '09:00', '10:00', '1234');
+insert into flight_prj3 values('K002', '서울', '일본', '230914', '230914', '09:00', '11:00', '2345');
+
+
+
+create table seat_prj3(
+seatcode varchar2(50) primary key,
+seatgrade varchar(50) not null,
+seatnum varchar2(50) not null
+);
+
+
+drop table seat_prj3;
+
+insert into seat_prj3 values('A001', '이코노미', '100');
+insert into seat_prj3 values('A002', '비즈니스', '200');
+
+create table aircraft_prj3( --항공기 테이블
+airnum varchar2(50) primary key, --항공기코드
+airname varchar2(50) not null, --항공기명. 
+seatcode varchar2(50) not null
+);
+insert into aircraft_prj3 values('1234', '수리온', 'A001');
+insert into aircraft_prj3 values('2345', '수리온', 'K002');
+
+
+
+
+
+
+
+commit;
+
+
+select * from seat_prj3;
+select * from flight_prj3;
+select * from resvation_prj3;
+select * from customer_prj3;
+select * from aircraft_prj3;
+
+select id , pw, name, phone, gender from CUSTOMER_PRJ3 where id = 'test01'; 
+update CUSTOMER_PRJ3 set pw='aaaa',phone='01032420914' where id='test02';
+
+select * from flight_prj3 f join aircraft_prj3 a on f.AIRNUM = a.AIRNUM 
+join resvation_prj3 r on r.FCODE = f.FCODE where id = 'test01';
+
+select r.RESNO,r.FCODE,f.DEPARTURE,f.ARRIVAL,f.SDAY,f.EDAY,f.STIME,f.ETIME,a.AIRNUM,a.AIRNAME
+from flight_prj3 f join aircraft_prj3 a on f.AIRNUM = a.AIRNUM join resvation_prj3 r on r.FCODE = f.FCODE where id = 'test01';
+
+
+update flight_prj3 set SDAY='230918',EDAY='230918',STIME='10:00',ETIME='11:00' where fcode='K001';
