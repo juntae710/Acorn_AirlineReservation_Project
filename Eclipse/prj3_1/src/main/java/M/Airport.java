@@ -59,7 +59,7 @@ public class Airport {
 
 	@Override
 	public String toString() {
-		return "Country [city=" + city + ", code=" + code + ", country=" + country + "]";
+		return "Country [city=" + city + ", code=" + code + ", country=" + country + ", cotinet=" + cotinet+  "]";
 	}
 	
 
