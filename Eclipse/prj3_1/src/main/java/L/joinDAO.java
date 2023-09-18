@@ -83,7 +83,7 @@ public class joinDAO {
 		
 		
 		Connection connection = dbcon();
-		String sql = "insert into customer_prj3(id, pw, name, phone, gender) values(?, ?, ?, ?, ?)"; 
+		String sql = "insert into customer_prj3(id, pw, name, phone, gender) values(?, ?, ?, ?, ?)";
 		
 		try {
 			PreparedStatement pst = connection.prepareStatement(sql);
@@ -92,7 +92,6 @@ public class joinDAO {
 			pst.setString(3, customer.getName());
 			pst.setString(4, customer.getPhone());
 			pst.setString(5, customer.getGender());
-			
 			
 			pst.executeUpdate();
 			
@@ -104,7 +103,44 @@ public class joinDAO {
 			throw e;
 		}
 		
-
+	}
+	
+	
+	public Customer selectOne(String id) {
+		
+		//db 연결
+		Connection connection = dbcon();
+		
+		//sql
+		String sql = "select * from customer_prj3 where id = ?";
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		Customer customer = null;
+		
+		
+		try {
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, id);
+			
+			
+			rs = pst.executeQuery();
+			
+			
+			if (rs.next()) {
+				String id_tmp = rs.getString(1);
+				customer = new Customer(id_tmp);
+				return customer;
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		close(rs, pst, connection);
+		return customer;
 		
 	}
 	
@@ -132,14 +168,18 @@ public class joinDAO {
 		//for(Customer cc : c) {
 		//	System.out.println(cc );
 		//}
-		Customer c = new Customer("test02", "pw4567", "김이", "01012345678", "W");
+		/*Customer c = new Customer("test02", "pw4567", "김이", "01012345678", "W");
 		try {
 			dao.insert(c);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println( c);
+		//System.out.println( c);
+		*/
+		
+		Customer c1 = dao.selectOne("testtest55");
+		System.out.println(c1);
 		
 
 	}
