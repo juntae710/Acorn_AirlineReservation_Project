@@ -86,6 +86,30 @@ public class AirlineDAO {
 		close(con, pst, rs);
 		return airportList;
 	}
+	public ArrayList<Flight> getFlight()
+	{
+		Connection con = null;
+		String sql = " select *"
+				   + " from flight_prj3"
+				   + " where departure =? and arrival =?";
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		ArrayList<Flight> allFlight = new ArrayList<>();
+		try {
+			pst = con.prepareStatement(sql);
+			rs = pst.executeQuery();
+			while(rs.next()){
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	}
+	
+	
+	
+	
+	
 	public void close( AutoCloseable ...a) {
 		for( AutoCloseable  item : a) {
 		   try {
@@ -99,12 +123,12 @@ public class AirlineDAO {
 	}
 	public static void main(String args[]) {
 		AirlineDAO dao = new AirlineDAO();
-		//ArrayList<Country> clist= dao.airportList();
-		//System.out.println(clist);
-		
-		String a = "괌";
-		ArrayList<Airport> clist = dao.searchAirport(a);
+		ArrayList<Airport> clist= dao.airportList();
 		System.out.println(clist);
+		
+		//String a = "괌";
+		//ArrayList<Airport> clist = dao.searchAirport(a);
+		//System.out.println(clist);
 		
 	}
 	
