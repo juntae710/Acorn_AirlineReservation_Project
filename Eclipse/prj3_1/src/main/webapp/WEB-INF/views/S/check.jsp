@@ -9,26 +9,27 @@
 <title>예약조회</title>
 </head>
 <body>
-<h2> 예약조회</h2>
-<form action="/prj0918프로젝트연습/S_flightServlet" method="get">
- <label for="fcode"> fcode 입력:</label>
- <input type="text"  name="fcode">
- <button>조회</button>
+ 
+<% ArrayList<Flight> list = (ArrayList<Flight>) request.getAttribute("list"); %>
+<% if (list != null) { %>
+    <% for (int i = 0; i < list.size(); i++) { %>
+        <ul>
+            <li>항공기번호: <%= list.get(i).getFcode()%></li>
+            <li>출발지: <%= list.get(i).getDeparture() %></li>
+            <li>도착지: <%= list.get(i).getArrival() %></li>
+            <li>출발일: <%= list.get(i).getSday() %></li>
+            <li>도착일: <%= list.get(i).getEday() %></li>
+            <li>출발시간: <%= list.get(i).getStime() %></li>
+            <li>도착시간: <%= list.get(i).getEtime() %></li>
+            <li>항공번호: <%= list.get(i).getAirnum() %></li>
+        </ul>
+    <% } %>
+<% } %>
+
+<form name="frm2" action="/prj0918프로젝트연습/sdelete" method="post" >
+<button>예약취소</button>
 
 </form>
-<%ArrayList<Flight> list = (ArrayList<Flight>)request.getAttribute("list"); %>
-<%for(int i=0;i<list.size();i++){
-	out.println(list.get(i).getFcod());
-	out.println(list.get(i).getDeparture());
-	out.println(list.get(i).getArrival());
-	out.println(list.get(i).getSday());
-	out.println(list.get(i).getEday());
-	out.println(list.get(i).getStime());
-	out.println(list.get(i).getEtime());
-	out.println(list.get(i).getAirnum()+"<br>");
-	
-} %>
-
 
 </body>
 </html>

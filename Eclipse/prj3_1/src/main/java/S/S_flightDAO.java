@@ -55,14 +55,15 @@ public class S_flightDAO {
 			rs = pst.executeQuery();
 			while(rs.next()) {
 				
+				
 				String departure = rs.getString(2);
 				String arrival = rs.getString(3);
-				String Sday = rs.getString(4);
-				String Eday = rs.getString(5);
-				String Stime = rs.getString(6);
-				String Etime = rs.getString(7);
+				String sday = rs.getString(4);
+				String eday = rs.getString(5);
+				String stime = rs.getString(6);
+				String etime = rs.getString(7);
 				String airnum = rs.getString(8);
-				list.add(new Flight(fcode,departure,arrival,Sday,Eday,Stime,Etime,airnum));
+				list.add(new Flight(fcode,departure,arrival,sday,eday,stime,etime,airnum));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -71,5 +72,21 @@ public class S_flightDAO {
 		close(rs,con,pst);
 		return list;
 		
+	}
+	
+	public void deleteFlightinfo(String fcode) {
+		Connection con = db();
+		String sql = "delete * from flight_prj3 where fcode=?";
+		PreparedStatement pst = null;
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, fcode);
+			pst.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close(con,pst);
 	}
 }

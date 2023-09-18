@@ -2,102 +2,124 @@ package prj0918프로젝트연습;
 
 public class Flight {
 
-	String fcod;
+	String fcode;
 	String departure;
 	String arrival;
-	String Sday;
-	String Eday;
-	String Stime;
-	String Etime;
+	String sday;
+	String eday;
+	String stime;
+	String etime;
 	String airnum;
 	
 	public Flight() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Flight(String fcod, String departure, String arrival, String sday, String eday, String stime, String etime,
+	 
+	public Flight(String fcode, String departure, String arrival, String sday, String eday, String stime, String etime,
 			String airnum) {
 		super();
-		this.fcod = fcod;
+		this.fcode = fcode;
 		this.departure = departure;
 		this.arrival = arrival;
-		Sday = sday;
-		Eday = eday;
-		Stime = stime;
-		Etime = etime;
+		this.sday = sday;
+		this.eday = eday;
+		this.stime = stime;
+		this.etime = etime;
 		this.airnum = airnum;
 	}
 
-	public String getFcod() {
-		return fcod;
+
+
+	 
+
+	public String getFcode() {
+		return fcode;
 	}
 
-	public void setFcod(String fcod) {
-		this.fcod = fcod;
+
+	public void setFcode(String fcode) {
+		this.fcode = fcode;
 	}
+
 
 	public String getDeparture() {
 		return departure;
 	}
 
+
 	public void setDeparture(String departure) {
 		this.departure = departure;
 	}
+
 
 	public String getArrival() {
 		return arrival;
 	}
 
+
 	public void setArrival(String arrival) {
 		this.arrival = arrival;
 	}
 
+
 	public String getSday() {
-		return Sday;
+		return sday;
 	}
+
 
 	public void setSday(String sday) {
-		Sday = sday;
+		this.sday = sday;
 	}
+
 
 	public String getEday() {
-		return Eday;
+		return eday;
 	}
+
 
 	public void setEday(String eday) {
-		Eday = eday;
+		this.eday = eday;
 	}
+
 
 	public String getStime() {
-		return Stime;
+		return stime;
 	}
+
 
 	public void setStime(String stime) {
-		Stime = stime;
+		this.stime = stime;
 	}
+
 
 	public String getEtime() {
-		return Etime;
+		return etime;
 	}
 
+
 	public void setEtime(String etime) {
-		Etime = etime;
+		this.etime = etime;
 	}
+
 
 	public String getAirnum() {
 		return airnum;
 	}
 
+
 	public void setAirnum(String airnum) {
 		this.airnum = airnum;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Flight [fcod=" + fcod + ", departure=" + departure + ", arrival=" + arrival + ", Sday=" + Sday
-				+ ", Eday=" + Eday + ", Stime=" + Stime + ", Etime=" + Etime + ", airnum=" + airnum + "]";
+		return "Flight [fcode=" + fcode + ", departure=" + departure + ", arrival=" + arrival + ", sday=" + sday
+				+ ", eday=" + eday + ", stime=" + stime + ", etime=" + etime + ", airnum=" + airnum + "]";
 	}
-	
+
+ 
 	
 	
 }
