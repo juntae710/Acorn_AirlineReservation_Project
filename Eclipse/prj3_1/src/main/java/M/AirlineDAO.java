@@ -1,6 +1,7 @@
 package prj_airline;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 
 import org.eclipse.jdt.internal.compiler.batch.Main;
 
-import user.User;
 
 public class AirlineDAO {
 	String driver = "oracle.jdbc.driver.OracleDriver" ;
@@ -86,25 +86,42 @@ public class AirlineDAO {
 		close(con, pst, rs);
 		return airportList;
 	}
-	public ArrayList<Flight> getFlight()
+	public ArrayList<Flight> getFlight(String dep, String arr,String date)
 	{
-		Connection con = null;
-		String sql = " select *"
+		Connection con = dbcon();
+		String sql = " SELECT *"
 				   + " from flight_prj3"
-				   + " where departure =? and arrival =?";
+				   + " where departure =? and arrival =?  and sday=?";
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		ArrayList<Flight> allFlight = new ArrayList<>();
+		
 		try {
 			pst = con.prepareStatement(sql);
+			pst.setString(1, dep);
+			pst.setString(2, arr);
+			pst.setString(3, date);
 			rs = pst.executeQuery();
 			while(rs.next()){
+				String fcode = rs.getString(1);
+				String departure = rs.getString(2);
+				String arriaval = rs.getString(3);
+				Date sday = rs.getDate(4);
+				Date eday = rs.getDate(5);
+				String stime = rs.getString(6);
+				String etime = rs.getString(7);
+				String airnum = rs.getString(8);
+				allFlight.add(new Flight(fcode,departure,arriaval,sday,eday,stime,etime,airnum));
 				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	}
+		}	
+		close(con, pst, rs);
+		return allFlight;
+   }
+	
 	
 	
 	
@@ -123,12 +140,15 @@ public class AirlineDAO {
 	}
 	public static void main(String args[]) {
 		AirlineDAO dao = new AirlineDAO();
-		ArrayList<Airport> clist= dao.airportList();
-		System.out.println(clist);
+		//ArrayList<Airport> clist= dao.airportList();
+		//System.out.println(clist);
 		
 		//String a = "괌";
 		//ArrayList<Airport> clist = dao.searchAirport(a);
 		//System.out.println(clist);
+		
+		ArrayList<Flight> flist = dao.getFlight("인천", "부산","2023-09-22");
+		System.out.println(flist);
 		
 	}
 	

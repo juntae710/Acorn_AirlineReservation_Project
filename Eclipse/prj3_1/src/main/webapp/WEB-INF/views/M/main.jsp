@@ -51,8 +51,7 @@
     }
 </style>
 <script>
-	let selectedFrom = "";
-	let selectedTo = "";
+	
 	
 	function send(buttonId){
 	    $('.departure').css("display","block");
@@ -62,21 +61,32 @@
 	        url:"/prj_airline/index.do",
 	        success: function(data){
 	        	console.log(data);
-	            $("#departureList").empty(); // Clear the list before adding new items
+	            $("#departureList").empty(); 
 	            $.each(data, function(index, item) {
 	                $("#departureList").append('<span style="cursor: pointer;" onclick="select(\'' + buttonId + '\', this);">'+ item.code + " - " + item.city +" - " + item.country +" - " + item.cotinet + "</span><br>");
+	                
 	            });
 	
 	        },
 	        error: function(err){
+	        	
 	            console.log(err);
 	        }
 	    });
+	  
 	}
 	
 	function select(buttonId, target){
-	    let selected = document.getElementById(buttonId);
-	    selected.innerText = target.innerText;
+		let selected = document.getElementById(buttonId);
+		selected.value  = target.innerText;
+		selected.innerText = selected.value
+		if(buttonId == "fromBtn"){
+		    document.getElementById("fromData").value = target.innerText;
+	    }
+	    else if(buttonId == "toBtn"){
+	    	document.getElementById("toData").value = target.innerText;
+	    }
+		alert(selected.value)
 	    $('.departure').css("display","none");
 	}
 
@@ -94,7 +104,18 @@
 	    });
 	    
 	}
-
+	function databtn(){
+		let date = $('#Date').val();
+		let fromBtn = document.getElementById("fromBtn").value;
+        let toBtn = document.getElementById("toBtn").value;
+        if( date=="" || fromBtn=="" || toBtn==""){
+        	alert("입력되지 않은 정보가 있습니다.");
+        	return false;
+        }
+        return true;
+	    
+}
+   
 </script>
 </head>
 <body>
@@ -105,25 +126,29 @@
    </div>
    <div class="selectall"> <!-- 선택창 -->
       <div class="point"><!-- 출발지와 목적지 -->
-      	<form><button onclick="send('fromBtn')" id="fromBtn">From</button></form>
-		<button onclick="send('toBtn')" id="toBtn">To</button>
-      </div>
-      <div> <!-- 출발일, 좌석등급, 검색 버튼 구성 -->
-        <div><!-- 왕복과 편도 버튼 구성 -->
-          <button>왕복</button>
-          <button>편도</button>
-        </div>
-        <div> <!-- 출발일, 좌석등급, 검색 버튼 -->
-          <div> <!-- 출발일 선택 -->
-            <p>출발일</p>
-            <button id="dateBtn" onclick="selectDate()">가는날 ~ 오는날</button>
-          </div>
-          <div> <!-- 좌석등급 -->
-            <p>좌석등급</p>
-            <button>선택하세요</button>
-          </div>
-          <div> <!-- 항공편 조회 버튼 -->
-            <button>항공편 검색</button>
+         <form name="frm" action="flight.do" method="post" charset="utf-8">
+            <input type="hidden" id="fromData" name="fromData" value="">
+            <input type="hidden" id="toData" name="toData" value="">
+	        <button onclick="send('fromBtn')" id="fromBtn" type="button">From</button>
+			<button onclick="send('toBtn')"  id="toBtn" type="button">To</button>
+	      </div>
+	      <div> <!-- 출발일, 좌석등급, 검색 버튼 구성 -->
+	        <div><!-- 왕복과 편도 버튼 구성 -->
+	          <button>왕복</button>
+	          <button>편도</button>
+	        </div>
+	        <div> <!-- 출발일, 좌석등급, 검색 버튼 -->
+	          <div> <!-- 출발일 선택 -->
+	            <p>출발일</p>
+	            <button id="dateBtn" onclick="selectDate()"  type="button">가는날 ~ 오는날</button>
+	          </div>
+	          <div> <!-- 좌석등급 -->
+	            <p>좌석등급</p>
+	            <button type="button">선택하세요</button>
+	          </div>
+	          <div> <!-- 항공편 조회 버튼 -->
+	            <button onclick="return databtn()" type="submit">항공편 검색</button>
+         
           </div>
         </div>
       </div>
@@ -138,16 +163,15 @@
   
    <div id="departureList">
    </div>
-   <h1 id="selected"></h1>
    
 </div>
 <div class="selectdate">
-	<input type="date" id="Date">
+	<input type="date" id="Date" name="dateData">
 </div>
 <div class="flightclass">
 	
 </div>
-
+</form>
 
 <!--  
 <div class="selectitem">
