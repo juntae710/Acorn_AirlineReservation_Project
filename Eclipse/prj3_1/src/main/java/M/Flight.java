@@ -4,25 +4,28 @@ import java.time.LocalDate;
 public class Flight {
 	String fcode;
 	String departure;
+	String arrival;
 	Date sday;
 	Date eday;
 	String stime;
 	String etime;
-	String arinum;
+	String airnum;
 	
 	public Flight() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Flight(String fcode, String departure, Date sday, Date eday, String stime, String etime, String arinum) {
+	public Flight(String fcode, String departure, String arrival, Date sday, Date eday, String stime, String etime,
+			String airnum) {
 		super();
 		this.fcode = fcode;
 		this.departure = departure;
+		this.arrival = arrival;
 		this.sday = sday;
 		this.eday = eday;
 		this.stime = stime;
 		this.etime = etime;
-		this.arinum = arinum;
+		this.airnum = airnum;
 	}
 
 	public String getFcode() {
@@ -31,6 +34,10 @@ public class Flight {
 
 	public String getDeparture() {
 		return departure;
+	}
+
+	public String getArrival() {
+		return arrival;
 	}
 
 	public Date getSday() {
@@ -49,9 +56,16 @@ public class Flight {
 		return etime;
 	}
 
-	public String getArinum() {
-		return arinum;
+	public String getAirnum() {
+		return airnum;
 	}
+
+	@Override
+	public String toString() {
+		return "Flight [fcode=" + fcode + ", departure=" + departure + ", arrival=" + arrival + ", sday=" + sday
+				+ ", eday=" + eday + ", stime=" + stime + ", etime=" + etime + ", airnum=" + airnum + "]";
+	}
+	
 	
 
 }
