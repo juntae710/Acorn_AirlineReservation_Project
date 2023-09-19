@@ -1,4 +1,4 @@
-package prj0918프로젝트연습;
+package third_project;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,15 +13,22 @@ public class S_flightServlet2 extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String fcode=req.getParameter("fcode");
 		
-
+		String resno= req.getParameter("resno");
+		//System.out.println(resno);
+	
 		S_flightService sservice = new S_flightService();
-		ArrayList<Flight> list = sservice.getreginfo(fcode);
-		System.out.println(list);
+		//ArrayList<Flight> list = sservice.getreginfo(fcode);
 		
-		req.setAttribute("list", list);
-		req.getRequestDispatcher("WEB-INF/views/check.jsp").forward(req, resp);
+		Flight f = sservice.getreginfo(resno);
+		
+		//System.out.println( "F="  + f);
+		
+		
+	 
+		
+		req.setAttribute("flight", f);
+		req.getRequestDispatcher("WEB-INF/views/S_check.jsp").forward(req, resp);
 		
 	}
 }
