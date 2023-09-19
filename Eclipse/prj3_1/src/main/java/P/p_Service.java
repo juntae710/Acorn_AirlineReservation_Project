@@ -20,11 +20,21 @@ public class p_Service {
 		dao.updateMember(c);
 	}
 
+	public JSONObject selectidpw2(String id) {
+		// 하나만찾기, 조회하기
+		P_Customer c = dao.selectidpw(id);
+		JSONObject o = new JSONObject();
+		o.put("id", c.getId());
+		o.put("pw", c.getPw());
+		o.put("name", c.getName());
+		o.put("phone", c.getPhone());
+		o.put("gender", c.getGender());
+		return o;
+	}
+
 	public JSONArray selectRes(String id) {
 
 		ArrayList<P_ResUD> list = dao.selectRes(id);
-		
-		
 
 		JSONArray arr = new JSONArray();
 		for (int i = 0; i < list.size(); i++) {
@@ -47,10 +57,9 @@ public class p_Service {
 	}
 
 	public ArrayList<P_ResUD> selectRes2(String id) {
-		
+
 		ArrayList<P_ResUD> list = dao.selectRes(id);
-		
-		
+
 		return list;
 	}
 
@@ -58,12 +67,12 @@ public class p_Service {
 		// 수정하기 업데이트하기
 		dao.updateRes(r);
 	}
-	
+
 	public static void main(String[] args) {
 		p_Service s = new p_Service();
 //		P_Customer c = s.selectidpw("test01");
 //		System.out.println("c=" + c.getId());
-		JSONArray arr =s.selectRes("test01");
+		JSONArray arr = s.selectRes("test01");
 		System.out.println(arr);
 	}
 
