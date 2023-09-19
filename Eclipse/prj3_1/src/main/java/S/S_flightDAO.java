@@ -1,4 +1,4 @@
-package prj0918프로젝트연습;
+package third_project;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -42,7 +42,7 @@ public class S_flightDAO {
 			}
 		}
 	}
-	
+	/*
 	public ArrayList<Flight> selectcheck(String fcode){
 		Connection con = db();
 		String sql = "select * from flight_prj3 where fcode=?";
@@ -73,14 +73,21 @@ public class S_flightDAO {
 		return list;
 		
 	}
+	*/
 	
-	public void deleteFlightinfo(String fcode) {
+	public void deleteFlightinfo(String resno) {
 		Connection con = db();
-		String sql = "delete * from flight_prj3 where fcode=?";
+		String sql = "DELETE FROM resvation_prj3 r " +
+	             "WHERE r.RESNO = ? " +
+	             "AND EXISTS (SELECT 1 FROM flight_prj3 f " +
+	             "            WHERE r.FCODE = f.FCODE " +
+	             "            AND EXISTS (SELECT 1 FROM aircraft_prj3 a " +
+	             "                        WHERE f.airnum = a.airnum))";
+				
 		PreparedStatement pst = null;
 		try {
 			pst = con.prepareStatement(sql);
-			pst.setString(1, fcode);
+			pst.setString(1, resno);
 			pst.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -89,4 +96,76 @@ public class S_flightDAO {
 		}
 		close(con,pst);
 	}
+	/*
+	 public Flight selectonecheck(String fcode) {
+		 
+		 Connection con = db();
+		 String sql = "select * from flight_prj3 where fcode=?";
+		 PreparedStatement  pst = null;
+		 ResultSet rs = null;
+		 Flight f = null;
+		 try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, fcode);
+			rs = pst.executeQuery();
+			
+			if(rs.next()) {
+				
+				String fcode_tmp = rs.getString(1);
+				String departure_tmp = rs.getString(2);
+				String arrival_tmp = rs.getString(3);
+				String sday_tmp = rs.getString(4);
+				String eday_tmp = rs.getString(5);
+				String stime_tmp = rs.getString(6);
+				String etime_tmp = rs.getString(7);
+				String airnum_tmp = rs.getString(8);
+				f = new Flight(fcode_tmp,departure_tmp,arrival_tmp,sday_tmp,eday_tmp,stime_tmp,etime_tmp,airnum_tmp);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 close(rs,pst,con);
+		return f;
+	 }
+	 */
+	
+	public Flight selectonecheck(String resno) {
+		Connection con = db();
+		String sql = " select r.RESNO,r.FCODE,f.DEPARTURE,f.ARRIVAL,substr(f.SDAY, 1,10),substr(f.EDAY, 1,10),f.STIME,f.ETIME,a.AIRNUM,a.AIRNAME"
+	            +" from flight_prj3 f join aircraft_prj3 a on f.AIRNUM = a.AIRNUM join resvation_prj3 r on r.FCODE = f.FCODE where resno = ?";
+		
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		Flight f = null;
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, resno);
+			rs = pst.executeQuery();
+			if(rs.next()) {
+				String resno_tmp = rs.getString(1);
+				String fcode_tmp = rs.getString(2);
+				String DEPARTURE_tmp = rs.getString(3);
+				String ARRIVAL_tmp = rs.getString(4);
+				String SDAY_tmp = rs.getString(5);
+				String EDAY_tmp = rs.getString(6);
+				String STIME_tmp = rs.getString(7);
+				String ETIME_tmp = rs.getString(8);
+				String AIRNUM_tmp = rs.getString(9);
+				String AIRNAME_tmp = rs.getString(10);
+				
+				f = new Flight(resno_tmp,fcode_tmp,DEPARTURE_tmp,ARRIVAL_tmp,SDAY_tmp,EDAY_tmp,STIME_tmp,ETIME_tmp,AIRNUM_tmp,AIRNAME_tmp);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close(rs,con,pst);
+		return f;
+
+	}
+	 	
+	 
+	
 }

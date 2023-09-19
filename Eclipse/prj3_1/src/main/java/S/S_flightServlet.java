@@ -1,4 +1,4 @@
-package prj0918프로젝트연습;
+package third_project;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class S_flightServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	 
-		req.getRequestDispatcher("WEB-INF/views/main.jsp").forward(req, resp);
+		req.getRequestDispatcher("WEB-INF/views/S_main.jsp").forward(req, resp);
 		
 	}
 	
