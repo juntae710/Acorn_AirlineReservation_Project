@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.loginBox {
+	width: 500px;
+	height: 400px;
+	margin: 0 auto;
+	margin-top: 50px;
+	border-radius: 30px
+}
+
+form {
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.loginHead {
+	font-size: 50px;
+	font-weight: bolder;
+	text-align: center;
+	border-radius: 30px
+}
+
+.inputBox {
+	margin-top: 50px;
+}
+
+.inputName {
+	margin-left: 5px;
+	margin-top:50px 
+	}
+
+input {
+	height: 25px;
+	width: 300px;
+	border-radius: 8px;
+}
+
+button {
+	width: 300px;
+	height: 30px;
+	background-color: rgb(55, 61, 63);
+	margin-top: 30px;
+	color: aliceblue;
+	border-radius: 8px;
+	border: none;
+}
+
+button:active {
+	background-color: rgb(152, 153, 153);
+}
