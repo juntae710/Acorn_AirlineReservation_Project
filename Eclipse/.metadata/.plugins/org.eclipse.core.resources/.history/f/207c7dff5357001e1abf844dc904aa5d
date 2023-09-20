@@ -1,0 +1,123 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	margin: 0;
+}
+
+main {
+	border: 1px solid black;
+}
+
+header {
+	border: 1px solid red;
+	height: 150px;
+	display: flex;
+	position: relative;
+}
+
+.headerimg {
+	width: 200px;
+	height: 70px;
+	border: 1px solid black;
+	position: absolute;
+	left: 30px;
+	top: 30px;
+}
+
+.headerAtag {
+	width: 200px;
+	height: 50px;
+	border: 1px solid black;
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	text-align: center;
+}
+
+section {
+	border: 1px solid green;
+	height: 500px;
+	margin-top: 40px;
+}
+
+footer {
+	border: 1px solid blue;
+	height: 259px;
+	margin-top: 40px;
+	margin-bottom: 0px;
+	display: flex;
+}
+
+
+.footer_info{
+border: 1px solid black;
+margin-left: 50px;
+width: 1000px;
+font-size: 20px;
+
+
+}
+.footer_img{
+border: 1px solid black;
+width: 200px;
+height: 100px;
+margin-left: 600px; 
+margin-top: 80px;
+}
+
+</style>
+</head>
+<body>
+	<main>
+		<header>
+			<div class="headerimg">
+				<img src="" alt=""> 로고사진
+			</div>
+
+			<%
+			String id = (String) session.getAttribute("id");
+			%>
+
+			<div class="headerAtag">
+				<%
+				if (id == null) {
+				%>
+				<a href="<%=request.getContextPath()%>/h_login">로그인</a>
+				<%
+				%>
+				<a href="<%=request.getContextPath()%>/l_join">회원가입</a>
+				<%
+				} else {
+				%>
+				<p>아이디: <%=id%>님 </p>
+				<a href="<%=request.getContextPath()%>/h_logOut">로그아웃</a>
+				<a href="<%=request.getContextPath()%>/UUA.do">마이페이지</a>
+
+				<%
+				}
+				%>
+			</div>
+
+		</header>
+
+		<section>내용</section>
+		
+		
+
+		<footer>
+		<div class="footer_info">
+		<br><br>(주) 에이콘항공 <br><br>
+			 주소)서울 마포구 양화로 122 3층, 4층 <br><br>
+			조장) 표준태 / 부조장) 이윤정 / 조원) 문나정 서예진 허재혁 <br><br>
+			통신판매업신고) 마포 제 17-3587 / 개인정보보호책임자) 이윤정 에이콘항공 부조장
+		 </div> 
+		<div class="footer_img"><img alt="" src="">로고</div>
+		</footer>
+	</main>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	margin: 0;
+}
+
+main {
+	border: 1px solid black;
+}
+
+header {
+	border: 1px solid red;
+	background-color: #B8E9FF;
+	height: 150px;
+	display: flex;
+	position: relative;
+}
+
+.headerimg {
+	width: 200px;
+	height: 70px;
+	position: absolute;
+	left: 30px;
+	top: 30px;
+}
+
+.headerAtag {
+	display: flex;
+	width: 200px;
+	height: 50px;
+	border: 1px solid black;
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	text-align: center;
+}
+
+section {
+	border: 1px solid green;
+	height: 500px;
+	margin-top: 40px;
+}
+
+footer {
+	border: 1px solid blue;
+	height: 150px;
+	margin-top: 150px;
+	margin-bottom: 0px;
+	display: flex;
+	background-color: #B8E9FF ;
+}
+a{
+	color: gray;
+	text-decoration: none;
+	}
+	
+	
+.a_box{
+		margin-top: 20px;
+		border-radius: 40px;
+		background-color: #B8E6E1;
+		width: 100px;
+		height: 30px;
+		}
+
+.footer_info {
+	border: 1px solid black;
+	margin-left: 50px;
+	width: 1000px;
+	font-size: 13px;
+	color: gray;
+}
+
+.footer_img {
+	width: 200px;
+	height: 100px;
+	margin-left: 600px;
+	margin-top: 13px;
+}
+</style>
+</head>
+<body>
+	<main>
+		<header>
+			<div class="headerimg">
+				<img alt="이미지" src="<%=request.getContextPath()%>/img/acornairport.png">
+			</div>
+
+			<%
+			String id = (String) session.getAttribute("id");
+			%>
+
+			<div class="headerAtag">
+				<%
+				if (id == null) {
+				%>
+				<div class="a_box"><a href="<%=request.getContextPath()%>/h_login">로그인</a></div>
+				<%
+				%>
+				<div class="a_box"><a href="<%=request.getContextPath()%>/l_join">회원가입</a></div>
+				<%
+				} else {
+				%>
+				<p>아이디: <%=id%>님 </p>
+				<div class="a_box"><a href="<%=request.getContextPath()%>/h_logOut">로그아웃</a></div>
+				<div class="a_box"><a href="<%=request.getContextPath()%>/smain">마이페이지</a></div>
+
+				<%
+				}
+				%>
+			</div>
+
+		</header>
+
+		<section>내용</section>
+
+
+
+		<footer>
+			<div class="footer_info">
+				<br>(주) 에이콘항공 <br>
+				<br> 주소)서울 마포구 양화로 122 3층, 4층 <br>
+				<br> 조장) 표준태 / 부조장) 이윤정 / 조원) 문나정 서예진 허재혁 <br>
+				<br> 통신판매업신고) 마포 제 17-3587 / 개인정보보호책임자) 이윤정 에이콘항공 부조장
+			</div>
+			<div class="footer_img">
+				<img alt="이미지" src="<%=request.getContextPath()%>/img/acornairport.png">
+			</div>
+		</footer>
+	</main>
+</body>
+</html>
