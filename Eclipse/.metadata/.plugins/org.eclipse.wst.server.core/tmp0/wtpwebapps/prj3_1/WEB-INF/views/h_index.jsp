@@ -5,60 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-* {
-	margin: 0;
-}
-
-main {
-	border: 1px solid black;
-}
-
-header {
-	border: 1px solid red;
-	height: 150px;
-	display: flex;
-	position: relative;
-}
-
-.headerimg {
-	width: 200px;
-	height: 70px;
-	border: 1px solid black;
-	position: absolute;
-	left: 30px;
-	top: 30px;
-}
-
-.headerAtag {
-	width: 200px;
-	height: 50px;
-	border: 1px solid black;
-	position: absolute;
-	right: 30px;
-	top: 30px;
-	text-align: center;
-}
-
-section {
-	border: 1px solid green;
-	height: 500px;
-	margin-top: 40px;
-}
-
-footer {
-	border: 1px solid blue;
-	height: 200px;
-	margin-top: 40px;
-	margin-bottom: 0px;
-}
-</style>
+<link href="./css/HF.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<main>
 		<header>
 			<div class="headerimg">
-				<img src="" alt=""> 로고사진
+				<img alt="이미지" src="<%=request.getContextPath()%>/img/acornairport.png">
 			</div>
 
 			<%
@@ -69,16 +22,16 @@ footer {
 				<%
 				if (id == null) {
 				%>
-				<a href="<%=request.getContextPath()%>/h_login">로그인</a>
+				<div class="a_box"><a href="<%=request.getContextPath()%>/h_login">로그인</a></div>
 				<%
 				%>
-				<a href="<%=request.getContextPath()%>/l_join">회원가입</a>
+				<div class="a_box"><a href="<%=request.getContextPath()%>/l_join">회원가입</a></div>
 				<%
 				} else {
 				%>
 				<p>아이디: <%=id%>님 </p>
-				<a href="<%=request.getContextPath()%>/h_logOut">로그아웃</a>
-				<a href="<%=request.getContextPath()%>/UUA.do">마이페이지</a>
+				<div class="a_box"><a href="<%=request.getContextPath()%>/h_logOut">로그아웃</a></div>
+				<div class="a_box"><a href="<%=request.getContextPath()%>/smain">마이페이지</a></div>
 
 				<%
 				}
@@ -89,7 +42,19 @@ footer {
 
 		<section>내용</section>
 
-		<footer> 풋터 </footer>
+
+
+		<footer>
+			<div class="footer_info">
+				<br>(주) 에이콘항공 <br>
+				<br> 주소)서울 마포구 양화로 122 3층, 4층 <br>
+				<br> 조장) 표준태 / 부조장) 이윤정 / 조원) 문나정 서예진 허재혁 <br>
+				<br> 통신판매업신고) 마포 제 17-3587 / 개인정보보호책임자) 이윤정 에이콘항공 부조장
+			</div>
+			<div class="footer_img">
+				<img alt="이미지" src="<%=request.getContextPath()%>/img/acornairport.png">
+			</div>
+		</footer>
 	</main>
 </body>
 </html>

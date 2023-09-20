@@ -64,11 +64,12 @@
 <body>
 
 	<button onclick="select()">
-		<h2>개인정보 수정</h2>
+		<h2>수정할려면 클릭</h2>
 	</button>
-	<button  >
-		<h2>항공편 삭제</h2>
-	</button>
+<form  action="<%=request.getContextPath()%>/smain" method="get" >
+ <button>조회</button>
+
+</form>
 	<div id="disp"></div>
 
 

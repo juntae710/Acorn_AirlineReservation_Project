@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
-</head>
+</head> 
 <body>
     <form name="frm" action="l_join" method="post">
         <h2>회원가입</h2>
