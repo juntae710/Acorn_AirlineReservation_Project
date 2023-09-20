@@ -28,8 +28,9 @@ public class HomeServlet  extends HttpServlet {
 		
 		AirlineService as = new AirlineService();
 		JSONArray airportArr = as.allAirportJSON();
-		JSONArray airportSearch = as.getAirportJSON("인");
 		resp.getWriter().println(airportArr);
+		
+		
 	}
 
 }

@@ -44,10 +44,20 @@ public class AirlineService {
 		}
 		return arr;
 	}
+	public ArrayList<Flight> getSchedule(String dep, String arr, String date){
+		ArrayList<Flight> scheduleList = dao.getFlight(dep, arr, date);
+		return scheduleList;
+	}
+	public String[] splitList(String a) {
+		return a.split(" - ");
+	}
+	
 	public static void main(String args[]) {
 		AirlineService as = new AirlineService();
-		JSONArray js = as.getAirportJSON("인");
-		System.out.println(js.toString());
+		//JSONArray js = as.getAirportJSON("인");
+		//System.out.println(js.toString());
+		ArrayList<Flight> list = as.getSchedule("인천", "부산", "2023-09-22");
+		System.out.println(list);
 		
 	}
 	

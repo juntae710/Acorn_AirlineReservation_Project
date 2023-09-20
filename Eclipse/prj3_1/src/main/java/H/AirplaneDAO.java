@@ -7,7 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+<<<<<<< HEAD
 import H.LoginDTO;
+=======
+import prj3_1.LoginDTO;
+>>>>>>> 333a6ac44189fb8523cd1728dd3e42f59caf818d
 
 public class AirplaneDAO {
 
