@@ -78,7 +78,7 @@ footer {
 				%>
 				<p>아이디: <%=id%>님 </p>
 				<a href="<%=request.getContextPath()%>/h_logOut">로그아웃</a>
-				<a href="<%=request.getContextPath()%>/UUA.do">마이페이지</a>
+				<a href="<%=request.getContextPath()%>/smain">마이페이지</a>
 
 				<%
 				}
