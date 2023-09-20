@@ -1,3 +1,1 @@
 INDEX VERSION 1.134
-file:/C:/Users/hbi/Desktop/prj3_team1/Eclipse/.metadata/.plugins/org.eclipse.jdt.core/1865797976.index
-meta_index
