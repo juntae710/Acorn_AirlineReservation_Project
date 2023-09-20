@@ -1,4 +1,4 @@
-<%@page import="join.joinDAO"%>
+<%@page import="L.joinDAO"%>
 <%@page import="java.text.Normalizer.Form"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

@@ -1,0 +1,80 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="prj3_1.P_Customer"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+	function select() {
+		//$.ajax();  ( ) 인자정보를 객체타입으로 제공
+		$.ajax({
+					type : "get",
+					dataType : "json",
+					url : "/prj3_1/UUA2.do",
+					success : function(data) {
+						console.log(data);
+						output = '';
+							output += '아이디: <input id="id" type="text" value="' + data.id + '" readonly="readonly" ><br>';
+							output += '비밀번호: <input id="pw" type="text" value="' + data.pw + '"  ><br>';
+							output += '이름: <input id="name" type="text" value="' + data.name + '"readonly="readonly"  ><br>';
+							output += '전화번호: <input id="phone" type="text" value="' + data.phone + '"  ><br>';
+							output += '성별: <input id="gender" type="text" value="' + data.gender + '" readonly="readonly" ><br>';
+							output += '<td><button onclick="update(this)">수정하기</button></td>	</tr>';
+						
+						document.getElementById('disp').innerHTML = output;
+					},
+					error : function() {
+						alert("요청실패");
+					}
+				});
+	}  // select
+	function update(obj) {		
+	   
+	   let  div = obj.parentElement;
+	   let id =  div.querySelector("#id").value;
+	   let pw =  div.querySelector("#pw").value;
+	   let name =  div.querySelector("#name").value;
+	   let phone =  div.querySelector("#phone").value;
+	   let gender =  div.querySelector("#gender").value;
+	   
+		$.ajax({
+			type:'post',
+			dataType:'text',
+			data: "id=" + id + "&pw=" + pw + "&name=" + name + "&phone=" + phone + "&gender=" + gender,			
+			url:"/prj3_1/UUA2.do",
+			success: function(data){
+				alert(data);
+			},
+			error: function(err){
+				alert("요청에 실패 했습니다.");
+			}
+		});
+	}
+</script>
+</head>
+<body>
+
+	<button onclick="select()">
+		<h2>개인정보 수정</h2>
+	</button>
+	<form action="/smain">
+	<button  >
+		<h2>항공편 삭제</h2>
+	</button>
+	</form>
+	<div id="disp"></div>
+
+
+
+
+</body>
+</html>
