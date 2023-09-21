@@ -130,14 +130,14 @@ public class S_flightDAO {
 	 }
 	 */
 	
-	public Flight selectonecheck(String resno) {
+	public Flight2 selectonecheck(String resno) {
 		Connection con = db();
 		String sql = " select r.RESNO,r.FCODE,f.DEPARTURE,f.ARRIVAL,substr(f.SDAY, 1,10),substr(f.EDAY, 1,10),f.STIME,f.ETIME,a.AIRNUM,a.AIRNAME"
 	            +" from flight_prj3 f join aircraft_prj3 a on f.AIRNUM = a.AIRNUM join resvation_prj3 r on r.FCODE = f.FCODE where resno = ?";
 		
 		PreparedStatement pst = null;
 		ResultSet rs = null;
-		Flight f = null;
+		Flight2 f = null;
 		try {
 			pst = con.prepareStatement(sql);
 			pst.setString(1, resno);
@@ -154,8 +154,8 @@ public class S_flightDAO {
 				String AIRNUM_tmp = rs.getString(9);
 				String AIRNAME_tmp = rs.getString(10);
 				
-				f = new Flight(resno_tmp,fcode_tmp,DEPARTURE_tmp,ARRIVAL_tmp,SDAY_tmp,EDAY_tmp,STIME_tmp,ETIME_tmp,AIRNUM_tmp,AIRNAME_tmp);
-				
+				f = new Flight2(resno_tmp,fcode_tmp,DEPARTURE_tmp,ARRIVAL_tmp,SDAY_tmp,EDAY_tmp,STIME_tmp,ETIME_tmp,AIRNUM_tmp,AIRNAME_tmp);
+		
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

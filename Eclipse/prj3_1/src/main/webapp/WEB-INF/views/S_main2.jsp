@@ -23,8 +23,6 @@
 </script>
 
 <style>
-
-
 * {
 	padding: 0px;
 	margin: 0px
@@ -120,31 +118,21 @@ a {
 	border: none;
 }
 
-#id, #name, #gender {
-	background-color: #d9d5d5;
-	border: 0.5px solid black;
-	outline: none;
-}
-
-.bub {
-	color: gray;
-	font-size: 12px;
-}
-
 form {
-	margin-top:70px; 
+	margin-top: 70px;
 }
-form input,.sbtn{
-margin-top:30px; 
+
+form input, .sbtn {
+	margin-top: 30px;
 }
 </style>
 </head>
 <body>
 	<main>
-			<header>
+		<header>
 			<div class="headerimg">
-				<img alt="이미지"
-					src="<%=request.getContextPath()%>/img/acornairport.png">
+				<a href="/prj3_1/index.do"><img alt="이미지"
+					src="<%=request.getContextPath()%>/img/acornairport.png"></a>
 			</div>
 
 			<%
@@ -169,8 +157,8 @@ margin-top:30px;
 				%>
 				<div class="idview">
 					<p>
-						
-						환영합니다 [<%=id%>]님  ฅʕ•o•ʔฅ
+
+						환영합니다 [<%=id%>]님 ฅʕ•o•ʔฅ
 					</p>
 				</div>
 				<div class="a_box">
@@ -186,33 +174,31 @@ margin-top:30px;
 			</div>
 
 		</header>
-
 		<section class="bg">
-		
-			
-			
-			<div class="wrap">
-			<div class="sp">
-				<a href="<%=request.getContextPath()%>/smain">조회</a>
-			</div>
-			<div class="pp" >
-				<a href="<%=request.getContextPath()%>/UUA.do">개인정보 수정</a>
-			</div>
-			<div class="ppinpo">
 
-				<div id="disp" class="disp">
-				
-								<form name="frm" action="<%=request.getContextPath()%>/scheck"
-									method="get" onsubmit="return check();">
-									<label for="resno"> 예약번호를 입력해주세요:</label><br> <input
-										type="text" name="resno"><br>
-									<button class="sbtn">검색</button>
-								</form>
-							
+
+
+			<div class="wrap">
+				<div class="sp">
+					<a href="<%=request.getContextPath()%>/smain">예 약 조 회</a>
+				</div>
+				<div class="pp">
+					<a href="<%=request.getContextPath()%>/UUA.do">개인정보 수정</a>
+				</div>
+				<div class="ppinpo">
+
+					<div class="disp">
+
+						<form name="frm" action="<%=request.getContextPath()%>/scheck"
+							method="get" onsubmit="return check();">
+							<label for="resno"> 예약번호를 입력해주세요:</label><br> <input
+								type="text" name="resno"><br>
+							<button class="sbtn">검색</button>
+						</form>
+
 					</div>
 				</div>
 			</div>
-		</div>
 		</section>
 
 

@@ -18,9 +18,9 @@
 <body>
 
 	<main>
-		<header>
+	<header>
 			<div class="headerimg">
-				   <a href="/prj3_1/h_index"><img alt="이미지" src="<%=request.getContextPath()%>/img/acornairport.png"></a>
+					   <a href="/prj3_1/index.do"><img alt="이미지" src="<%=request.getContextPath()%>/img/acornairport.png"></a>
 			</div>
 
 			<%
@@ -43,10 +43,12 @@
 				<%
 				} else {
 				%>
-				<p>
-					아이디:
-					<%=id%>님
-				</p>
+				<div class="idview">
+					<p>
+						
+						환영합니다 [<%=id%>]님  ฅʕ•o•ʔฅ
+					</p>
+				</div>
 				<div class="a_box">
 					<a href="<%=request.getContextPath()%>/h_logOut">로그아웃</a>
 				</div>

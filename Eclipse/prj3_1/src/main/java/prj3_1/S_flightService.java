@@ -17,8 +17,8 @@ public class S_flightService {
 		sdao.deleteFlightinfo(resno);
 	}
 	 
-	public Flight getreginfo(String resno){
-		Flight f = sdao.selectonecheck(resno); 
+	public Flight2 getreginfo(String resno){
+		Flight2 f = sdao.selectonecheck(resno); 
 		return f;
 		 
 	} 

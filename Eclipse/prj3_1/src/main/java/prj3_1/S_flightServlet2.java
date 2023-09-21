@@ -20,7 +20,7 @@ public class S_flightServlet2 extends HttpServlet{
 		S_flightService sservice = new S_flightService();
 		//ArrayList<Flight> list = sservice.getreginfo(fcode);
 		
-		Flight f = sservice.getreginfo(resno);
+		Flight2 f = sservice.getreginfo(resno);
 		
 		//System.out.println( "F="  + f);
 		

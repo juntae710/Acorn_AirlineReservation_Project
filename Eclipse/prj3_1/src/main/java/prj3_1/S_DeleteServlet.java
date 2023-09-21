@@ -22,7 +22,7 @@ public class S_DeleteServlet extends HttpServlet{
 		
 		
 	//	ArrayList<Flight> list = s.getreginfo(fcode);
-		Flight list = s.getreginfo(resno);
+		Flight2 list = s.getreginfo(resno);
 		
 		req.setAttribute("list", list);
 		req.getRequestDispatcher("WEB-INF/views/h_index.jsp").forward(req, resp);

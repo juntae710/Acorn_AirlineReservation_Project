@@ -29,7 +29,7 @@ public class H_Login extends HttpServlet {
 	    if (result) {
 	        HttpSession session = req.getSession();
 	        session.setAttribute("id", id);
-	        resp.sendRedirect("/prj3_1/h_index");
+	        resp.sendRedirect("/prj3_1/index.do");
 	    } else {
 	        String failMessage = "로그인 실패! 아이디 또는 비밀번호를 확인하세요.";
 	        req.setAttribute("failMessage", failMessage);

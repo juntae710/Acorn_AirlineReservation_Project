@@ -18,7 +18,7 @@ public class H_LogOut  extends HttpServlet{
 		 		
 		   HttpSession session  = req.getSession();
 		   session.invalidate();		   
-		   resp.sendRedirect("/prj3_1/h_index");
+		   resp.sendRedirect("/prj3_1/index.do");
 		   
 	}
 

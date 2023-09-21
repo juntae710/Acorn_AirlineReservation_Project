@@ -186,8 +186,7 @@ margin-top: 40px;
 <body>
 		<header>
 			<div class="headerimg">
-				<img alt="이미지"
-					src="<%=request.getContextPath()%>/img/acornairport.png">
+					   <a href="/prj3_1/index.do"><img alt="이미지" src="<%=request.getContextPath()%>/img/acornairport.png"></a>
 			</div>
 
 			<%
