@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+section {
+	height: 590px;
+	padding-top: 60px;
+}
+
+.loginBox {
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+	border-radius: 30px;
+	background-color: white;
+	padding-top: 30px;
+
+}
+
+form {
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.loginHead {
+	
+	font-size: 50px;
+	font-weight: bolder;
+	text-align: center;
+	border-radius: 30px;
+
+}
+
+.inputBox {
+	
+	margin-top: 50px;
+}
+
+.inputName {
+	margin-left: 5px;
+	margin-top: 20px;
+}
+
+input {
+    height: 25px;
+    width: 300px;
+    border-radius: 8px;
+    border: 1px solid black; /* 테두리 색상 추가 */
+}
+input:focus {
+	border-color: gray;
+	outline: none;
+	}
+
+
+button {
+	width: 300px;
+	height: 30px;
+	margin-top: 30px;
+	background-color: #B8E6E1;
+	color: gray;
+	border-radius: 8px;
+	    border: 1px solid gray; /* 테두리 색상 추가 */
+
+}
+
+button:active {
+	background-color: rgb(172, 237, 244);
+	border: none;
+
+}

@@ -25,7 +25,7 @@ public class S_DeleteServlet extends HttpServlet{
 		Flight list = s.getreginfo(resno);
 		
 		req.setAttribute("list", list);
-		req.getRequestDispatcher("WEB-INF/views/S_delete.jsp").forward(req, resp);
+		req.getRequestDispatcher("WEB-INF/views/h_index.jsp").forward(req, resp);
 		
 		//String Stringresult  = URLEncoder.encode("취소확인","utf-8"); //직접 인코딩 해야함
 		//resp.sendRedirect("/prj0918프로젝트연습/S_flightServlet?Stringresult"+Stringresult);

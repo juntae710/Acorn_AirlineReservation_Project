@@ -1,13 +1,3 @@
 INDEX VERSION 1.134
-C:\Users\hbi\Desktop\prj3_team1\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3412002116.index
-\prj3_1\src\main\java
-C:\Users\hbi\Desktop\prj3_team1\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2824432029.index
-\prj3_1\src\main\java
-C:\Users\hbi\Desktop\prj3_team1\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3627261202.index
-\prj3_1\src\main\java
 C:\Users\hbi\Desktop\prj3_team1\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3176946132.index
-\prj3_1\src\main\java
-C:\Users\hbi\Desktop\prj3_team1\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1381389566.index
-\prj3_1\src\main\java
-C:\Users\hbi\Desktop\prj3_team1\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3747502347.index
 \prj3_1\src\main\java

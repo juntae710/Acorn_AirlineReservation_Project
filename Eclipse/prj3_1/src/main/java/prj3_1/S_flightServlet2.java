@@ -28,7 +28,7 @@ public class S_flightServlet2 extends HttpServlet{
 	 
 		
 		req.setAttribute("flight", f);
-		req.getRequestDispatcher("WEB-INF/views/S_check.jsp").forward(req, resp);
+		req.getRequestDispatcher("WEB-INF/views/S_check2.jsp").forward(req, resp);
 		
 	}
 }

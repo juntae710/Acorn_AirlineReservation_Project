@@ -4,3 +4,28 @@
 
 9월 20, 2023 13:39:36.13 NEW SESSION
 9월 20, 2023 13:39:36.13 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+9월 21, 2023 08:20:54.932 NEW SESSION
+9월 21, 2023 08:20:54.932 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 21, 2023 09:21:30.509 [3960:9760:0921/092130.509:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 12, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 09:27:14.49 [3960:9760:0921/092714.048:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 6, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 09:29:09.24 [3960:9760:0921/092909.024:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 1, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 09:35:05.441 [3960:9760:0921/093505.441:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 2, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 09:46:01.319 [3960:9760:0921/094601.319:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 3, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 09:48:17.438 [3960:9760:0921/094817.438:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 1, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 09:57:42.239 [3960:9760:0921/095742.238:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 3, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 09:59:05.254 [3960:9760:0921/095905.253:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 1, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 10:01:30.926 [3960:9760:0921/100130.925:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 4, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 10:03:56.893 [3960:9760:0921/100356.893:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 5, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 10:16:53.995 [3960:9760:0921/101653.994:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 2, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 10:28:18.466 [3960:9760:0921/102818.466:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 1, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 10:39:26.386 [3960:9760:0921/103926.386:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 6, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 10:59:59.155 [3960:9760:0921/105959.154:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 7, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 11:19:44.924 [3960:9760:0921/111944.924:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 2, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 11:20:12.732 [3960:9760:0921/112012.732:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 1, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 11:21:21.141 [3960:9760:0921/112121.140:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 1, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 11:34:01.102 [3960:9760:0921/113401.102:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 8, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 11:43:54.564 [3960:9760:0921/114354.563:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 3, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 11:51:25.634 [3960:9760:0921/115125.633:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 2, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 12:03:07.704 [3960:9760:0921/120307.704:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 4, is_from_expiration = 0, deletion_reason = 1
+9월 21, 2023 12:26:42.420 [3960:9760:0921/122642.420:ERROR:navigation_entry_remover.cc(221)] RemoveNavigationEntries(), deleted_rows count = 3, is_from_expiration = 0, deletion_reason = 1

@@ -1,78 +1,95 @@
 @charset "UTF-8";
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+ font-family: 'NanumSquareNeo-Variable';
+}
 
 * {
-	margin: 0;
+   margin: 0;
 }
 
-main {
-	border: 1px solid black;
-}
 
 header {
-	background-color: #B8E9FF;
-	height: 150px;
-	display: flex;
-	position: relative;
+   background-color: #B8E9FF;
+   height: 150px;
+   display: flex;
+   position: relative;
 }
 
 .headerimg {
-	width: 200px;
-	height: 70px;
-	position: absolute;
-	left: 30px;
-	top: 30px;
+   width: 200px;
+   height: 70px;
+   position: absolute;
+   left: 30px;
+   top: 30px;
 }
 
 .headerAtag {
-	display: flex;
-	width: 200px;
-	height: 50px;
-	position: absolute;
-	right: 30px;
-	top: 30px;
-	text-align: center;
+   display: flex;
+   width: 350px;
+   height: 50px;
+   position: absolute;
+   right: 0px;
+   top: 30px;
+   text-align: center;
 }
 
 section {
-	border: 1px solid green;
-	height: 500px;
-	margin-top: 40px;
+   height: 650px;
 }
 
 footer {
-	height: 150px;
-	margin-top: 150px;
-	margin-bottom: 0px;
-	display: flex;
-	background-color: #B8E9FF ;
+   height: 150px;
+   
+   display: flex;
+   background-color: #B8E9FF ;
 }
 a{
-	color: gray;
-	text-decoration: none;
-	}
-	
-	
+   color: gray;
+   text-decoration: none;
+   }
+   
+   
 .a_box{
-		margin-top: 20px;
-		border-radius: 40px;
-		background-color: #B8E6E1;
-		width: 100px;
-		height: 50px;
-		line-height: 50px;
-		margin-left: 10px;
-		font-size: 20px;
-		}
+      margin-top: 35px;
+      border-radius: 40px;
+      background-color: #B8E6E1;
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      margin-left: 20px;
+      font-size: 20px;
+      }
 
 .footer_info {
-	margin-left: 50px;
-	width: 1000px;
-	font-size: 13px;
-	color: gray;
+   margin-left: 50px;
+   width: 1000px;
+   font-size: 13px;
+   color: gray;
 }
 
 .footer_img {
-	width: 200px;
-	height: 100px;
-	margin-left: 600px;
-	margin-top: 13px;
+   width: 200px;
+   height: 100px;
+   margin-left: 670px;
+   margin-top: 13px;
+}
+p{
+   line-height: 30px;
+   font-weight: bolder;
+   font-size: 20px;
+   
+}
+.idview{
+	width: 400px;
+	position: absolute;
+	right: 30px;
+	top: 0px;
+	text-align: center;
 }
