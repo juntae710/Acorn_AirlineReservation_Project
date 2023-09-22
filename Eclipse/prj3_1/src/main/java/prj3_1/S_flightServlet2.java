@@ -16,15 +16,18 @@ public class S_flightServlet2 extends HttpServlet{
 		
 		String resno= req.getParameter("resno");
 		//System.out.println(resno);
-	
+		int resNo = Integer.parseInt(resno);
 		S_flightService sservice = new S_flightService();
 		//ArrayList<Flight> list = sservice.getreginfo(fcode);
 		
-		Flight2 f = sservice.getreginfo(resno);
+		
 		
 		//System.out.println( "F="  + f);
 		
-		
+		AirlineService as = new AirlineService();
+		as.deleteSeatInfo(resNo);
+		Flight2 f = sservice.getreginfo(resno);
+		as.deleteCusInfo(resNo);
 	 
 		
 		req.setAttribute("flight", f);

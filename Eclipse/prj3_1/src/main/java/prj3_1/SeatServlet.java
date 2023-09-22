@@ -30,9 +30,15 @@ public class SeatServlet extends HttpServlet{
 		session.setAttribute("selectGrade", grade);
 		H_AirplaneService a = new H_AirplaneService();
 		String id = (String) session.getAttribute("id");
-		System.out.println(id);
+		ArrayList<Seat> ECO = as.getEconomy(fList);
 		
 		
+		
+		session.setAttribute("ECO", ECO);
+		ArrayList<Seat> BSN = as.getBsn(fList);
+		session.setAttribute("BSN", BSN);
+	    System.out.println(ECO);
+	    System.out.println(BSN);
 		if (id!=null) {
 			if(grade.equals("이코노미석")) {
 				req.getRequestDispatcher("WEB-INF/views/seatEconomy.jsp").forward(req, resp);

@@ -137,3 +137,31 @@ select * from airport;
 
 drop table aircraft_prj3;
 
+update flight_prj3
+set airnum='A002'
+where fcode = 'AC0102';
+insert into seat_prj3 values('1C','비즈니스석','AC0101',1,'A001',0);
+insert into seat_prj3 values('1D','비즈니스석','AC0101',1,'A001',0);
+insert into seat_prj3 values('2A','비즈니스석','AC0101',2,'A001',0);
+insert into seat_prj3 values('2B','비즈니스석','AC0101',2,'A001',0);
+insert into seat_prj3 values('2C','비즈니스석','AC0101',2,'A001',0);
+insert into seat_prj3 values('2D','비즈니스석','AC0101',2,'A001',0);
+insert into seat_prj3 values('7A','이코노미석','AC0101',7,'A001',0);
+insert into seat_prj3 values('7B','이코노미석','AC0101',7,'A001',0);
+insert into seat_prj3 values('7C','이코노미석','AC0101',7,'A001',0);
+insert into seat_prj3 values('7D','이코노미석','AC0101',7,'A001',0);
+insert into seat_prj3 values('7E','이코노미석','AC0101',7,'A001',0);
+insert into seat_prj3 values('7F','이코노미석','AC0101',7,'A001',0);
+
+insert into seat_prj3 values('8A','이코노미석','AC0101',8,'A001',0);
+insert into seat_prj3 values('8B','이코노미석','AC0101',8,'A001',0);
+insert into seat_prj3 values('8C','이코노미석','AC0101',8,'A001',0);
+insert into seat_prj3 values('8D','이코노미석','AC0101',8,'A001',0);
+insert into seat_prj3 values('8E','이코노미석','AC0101',8,'A001',0);
+insert into seat_prj3 values('8F','이코노미석','AC0101',8,'A001',0);
+
+insert  into flight_prj3 values('AC0103','인천','부산','2023-09-22','2023-09-22','18:20','19:20','A003'); 
+insert into aircraft_prj3 values('A003','A320',30,0); update aircraft_prj3
+set aircraft_prj3.businessnum =8, 
+    aircraft_prj3.econum =24
+where aircraft_prj3.airnum ='A001';

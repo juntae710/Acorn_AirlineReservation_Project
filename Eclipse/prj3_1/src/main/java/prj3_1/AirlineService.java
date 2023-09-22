@@ -29,6 +29,13 @@ public class AirlineService {
 	    return arr;
 	    
 	}
+	public void deleteCusInfo(int res) {
+    	dao.deleteCus(res);
+    }
+    public void deleteSeatInfo(int res) {
+    	dao.deleteSeat(res);
+    }
+	
 	public JSONArray allAirportJSON() {
 		ArrayList<Airport> allAirport = dao.airportList();
 		JSONArray arr = new JSONArray();
@@ -78,6 +85,15 @@ public class AirlineService {
 	public void seatState(String seatNum) {
 		dao.setState(seatNum);
 	}
+	public ArrayList<Seat> getEconomy(String fnum){
+		ArrayList<Seat> s = dao.ecoSeat(fnum);
+		return s;
+	}
+	public ArrayList<Seat> getBsn(String fnm){
+		ArrayList<Seat> s = dao.bsnSeat(fnm);
+		return s;
+	}
+
 	public static void main(String args[]) {
 		AirlineService as = new AirlineService();
 		//JSONArray js = as.getAirportJSON("인");
@@ -86,7 +102,7 @@ public class AirlineService {
 		//System.out.println(list);
 		//ArrayList<Schedule> s = as.getSchedule("인천", "부산", "2023-09-22");
 		//System.out.println(s);
-		ArrayList<Seat> s = as.getSeat();
+		ArrayList<Seat> s = as.getEconomy("AC0101");
 		System.out.println(s);
 		
 		

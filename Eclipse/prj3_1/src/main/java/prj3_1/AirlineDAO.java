@@ -356,6 +356,97 @@ public class AirlineDAO {
 		}
 		close(con, pst );
 	}
+	public ArrayList<Seat> ecoSeat(String fnum){
+		Connection con = dbcon();
+		String sql = " select * from seat_prj3 where fcode = ? and seatgrade='이코노미석'";
+	   		       
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		ArrayList<Seat> sList = new ArrayList<>();
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, fnum);	
+			rs = pst.executeQuery();
+			while(rs.next()){
+				String seastnum = rs.getString(1);
+				String grade = rs.getString(2);
+				String fcode = rs.getString(3);
+				int line =rs.getInt(4);
+				String airnum = rs.getString(5);
+				int state =rs.getInt(6);
+				sList.add(new Seat(seastnum,grade,fcode,line,airnum,state));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		close(con, pst, rs);
+		return sList;
+	}
+	public ArrayList<Seat> bsnSeat(String fnum){
+		Connection con = dbcon();
+		String sql = " select * from seat_prj3 where fcode = ? and seatgrade='비즈니스석'";
+	   		       
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		ArrayList<Seat> sList = new ArrayList<>();
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, fnum);	
+			rs = pst.executeQuery();
+			while(rs.next()){
+				String seastnum = rs.getString(1);
+				String grade = rs.getString(2);
+				String fcode = rs.getString(3);
+				int line =rs.getInt(4);
+				String airnum = rs.getString(5);
+				int state =rs.getInt(6);
+				sList.add(new Seat(seastnum,grade,fcode,line,airnum,state));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		close(con, pst, rs);
+		return sList;
+	}
+	public void deleteCus(int res) {
+		Connection con = dbcon();
+		String sql = " update customer_prj3"
+				   + " set resno = 0"
+				   + " where resno=?";
+		PreparedStatement pst = null;
+	 
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setInt(1, res);
+			pst.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close(con, pst);
+	}
+	
+	public void deleteSeat(int res) {
+		Connection con = dbcon();
+		String sql = "update seat_prj3"
+				   + " set seatstate=0"
+				   + " where SEATNUM= (select seatnum from resvation_prj3 where resno=?)";
+		PreparedStatement pst = null;
+	 
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setInt(1, res);
+			pst.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close(con, pst);
+	}
 	public void close( AutoCloseable ...a) {
 		for( AutoCloseable  item : a) {
 		   try {
@@ -382,12 +473,13 @@ public class AirlineDAO {
 		////System.out.println(sLsit);
 		//Flight s = dao.selectFlight("AC0101");
 		//System.out.println(s.toString());
-		dao.insertBooking("AC0101", "test01", "1B");
+		//dao.insertBooking("AC0101", "test01", "1B");
 	    //ArrayList<Booking> s = dao.getBooking();
 		//System.out.println(s);
 		int result = dao.findNo("AC0101", "test01");
-		System.out.println(result);
+		ArrayList<Seat> s = dao.ecoSeat("AC0101");
 		
+		System.out.println(s);
 		
 	}
 	
