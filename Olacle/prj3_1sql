@@ -1,14 +1,3 @@
-select * from emp;
-
-
-
-insert into customer_prj3(id, pw, name, phone, gender) values('test01', 'pw1234', '이름', '01012345678', 'W');
-
-insert into customer_prj3(id, pw, name, phone, gender) values('test02', '0914', 'jun', '01011110914', 'm');
-
-DROP table customer_prj3;
-
-
 
 -- 공항 테이블
 create table airport(
@@ -18,25 +7,25 @@ create table airport(
   continent varchar2(100)
 );
 
+
 -- 고객 테이블
 create table customer_prj3(
 id varchar2(50) primary key,                                     -- 고객 아이디
 pw varchar2(50) not null,                                        -- 고객 비밀번호
 name varchar2(50) not null,                                      -- 고객 이름
 phone varchar2(50) not null,                                     -- 고객 휴대폰번호
+resno int ,
 pasno varchar2(50),                                              -- 고객 여권번호
 gender varchar2(10) not null                                     -- 고객 성별
 );
-alter table customer_prj3 add resno int;
-desc CUSTOMER_PRJ3;
+
 -- 예약 테이블
 create table resvation_prj3(
 resno int primary key,                                            -- 예약번호
 fcode varchar2(50) REFERENCES flight_prj3(fcode),                -- 항공편번호
-id varchar2(50) REFERENCES customer_prj3(id)   ,                  -- 고객아이디
+id varchar2(50) REFERENCES customer_prj3(id)  ,                   -- 고객아이디
 seatnum varchar2(50) REFERENCES seat_prj3(seatnum)
 );
-insert into resvation_prj3 values (100,'AC0101','1234','1A');
 
 -- 항공편 테이블
 create table flight_prj3(
@@ -54,10 +43,10 @@ airnum varchar2(50) not null                                     -- 항공기코드
 create table aircraft_prj3( 
 airnum varchar2(50) primary key,                                 -- 항공기코드
 airname varchar2(50) not null,                                   -- 항공기명
-econum int not null ,                                             -- 이코노미좌석 잔여수
+econum int not null  ,                                            -- 이코노미좌석 잔여수
 businessnum int not null                                         -- 비즈니스석 잔여수
 );
-
+--시트
 create table seat_prj3(
   seatnum VARCHAR2(50) PRIMARY KEY,                              -- 좌석번호
   seatgrade VARCHAR2(50) NOT NULL,                               -- 좌석등급
@@ -92,6 +81,8 @@ insert into seat_prj3 values('6C','이코노미석','AC0101',6,'A001',0);
 insert into seat_prj3 values('6D','이코노미석','AC0101',6,'A001',0);
 insert into seat_prj3 values('6E','이코노미석','AC0101',6,'A001',0);
 insert into seat_prj3 values('6F','이코노미석','AC0101',6,'A001',0);
+
+
 
 
 -- 대한민국
@@ -131,29 +122,18 @@ insert into airport values ('오클랜드','AKL','뉴질랜드','대양주/괌');
 
 
 
-
+create sequence seq start with 123000;
 
 commit;
 
-insert into resvation_prj3 values ('오클랜드','AKL','뉴질랜드','대양주/괌');
+
 select * from seat_prj3;
 select * from flight_prj3;
 select * from resvation_prj3;
 select * from customer_prj3;
 select * from aircraft_prj3;
+select * from airport;
 
 
 drop table aircraft_prj3;
 
-
-select id , pw, name, phone, gender from CUSTOMER_PRJ3 where id = 'test01'; 
-update CUSTOMER_PRJ3 set pw='aaaa',phone='01032420914' where id='test02';
-
-select * from flight_prj3 f join aircraft_prj3 a on f.AIRNUM = a.AIRNUM 
-join resvation_prj3 r on r.FCODE = f.FCODE where id = 'test01';
-
-select r.RESNO,r.FCODE,f.DEPARTURE,f.ARRIVAL,f.SDAY,f.EDAY,f.STIME,f.ETIME,a.AIRNUM,a.AIRNAME
-from flight_prj3 f join aircraft_prj3 a on f.AIRNUM = a.AIRNUM join resvation_prj3 r on r.FCODE = f.FCODE where id = 'test01';
-
-
-update flight_prj3 set SDAY='230918',EDAY='230918',STIME='10:00',ETIME='11:00' where fcode='K001';

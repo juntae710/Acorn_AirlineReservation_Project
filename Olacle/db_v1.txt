@@ -1,0 +1,139 @@
+
+-- 공항 테이블
+create table airport(
+  city varchar2(100) primary key,                        
+  code varchar2(50),
+  country varchar2(50),
+  continent varchar2(100)
+);
+
+
+-- 고객 테이블
+create table customer_prj3(
+id varchar2(50) primary key,                                     -- 고객 아이디
+pw varchar2(50) not null,                                        -- 고객 비밀번호
+name varchar2(50) not null,                                      -- 고객 이름
+phone varchar2(50) not null,                                     -- 고객 휴대폰번호
+resno int ,
+pasno varchar2(50),                                              -- 고객 여권번호
+gender varchar2(10) not null                                     -- 고객 성별
+);
+
+-- 예약 테이블
+create table resvation_prj3(
+resno int primary key,                                            -- 예약번호
+fcode varchar2(50) REFERENCES flight_prj3(fcode),                -- 항공편번호
+id varchar2(50) REFERENCES customer_prj3(id)  ,                   -- 고객아이디
+seatnum varchar2(50) REFERENCES seat_prj3(seatnum)
+);
+
+-- 항공편 테이블
+create table flight_prj3(
+fcode varchar2(50) primary key,                                  -- 항공편번호
+departure varchar2(50) not null,                                 -- 출발지
+arrival varchar2(50) not null,                                   -- 도착지
+sday date not null,                                              -- 출발일
+eday date not null,                                              -- 도착일
+stime varchar2(50) not null,                                     -- 출발시각
+etime varchar2(50) not null,                                     -- 도착시각
+airnum varchar2(50) not null                                     -- 항공기코드
+); 
+
+-- 항공기 테이블
+create table aircraft_prj3( 
+airnum varchar2(50) primary key,                                 -- 항공기코드
+airname varchar2(50) not null,                                   -- 항공기명
+econum int not null  ,                                            -- 이코노미좌석 잔여수
+businessnum int not null                                         -- 비즈니스석 잔여수
+);
+--시트
+create table seat_prj3(
+  seatnum VARCHAR2(50) PRIMARY KEY,                              -- 좌석번호
+  seatgrade VARCHAR2(50) NOT NULL,                               -- 좌석등급
+  fcode VARCHAR2(50) REFERENCES flight_prj3(fcode),              -- 항공편번호
+  seatline INT NOT NULL,                                         -- 좌석라인
+  airnum VARCHAR2(50) REFERENCES aircraft_prj3(airnum),           -- 항공기코드
+  seatstate int
+);
+
+
+insert  into flight_prj3 values('AC0101','인천','부산','2023-09-22','2023-09-22','09:00','10:00','A001'); 
+insert  into flight_prj3 values('AC0102','인천','부산','2023-09-22','2023-09-22','18:20','19:20','A001'); 
+
+
+
+insert into aircraft_prj3 values('A001','B777',30,4);
+insert into aircraft_prj3 values('A002','A320',50,6);
+
+insert into seat_prj3 values('1A','비즈니스석','AC0101',1,'A001',0);
+insert into seat_prj3 values('1B','비즈니스석','AC0101',1,'A001',0);
+
+insert into seat_prj3 values('5A','이코노미석','AC0101',5,'A001',0);
+insert into seat_prj3 values('5B','이코노미석','AC0101',5,'A001',0);
+insert into seat_prj3 values('5C','이코노미석','AC0101',5,'A001',0);
+insert into seat_prj3 values('5D','이코노미석','AC0101',5,'A001',0);
+insert into seat_prj3 values('5E','이코노미석','AC0101',5,'A001',0);
+insert into seat_prj3 values('5F','이코노미석','AC0101',5,'A001',0);
+
+insert into seat_prj3 values('6A','이코노미석','AC0101',6,'A001',0);
+insert into seat_prj3 values('6B','이코노미석','AC0101',6,'A001',0);
+insert into seat_prj3 values('6C','이코노미석','AC0101',6,'A001',0);
+insert into seat_prj3 values('6D','이코노미석','AC0101',6,'A001',0);
+insert into seat_prj3 values('6E','이코노미석','AC0101',6,'A001',0);
+insert into seat_prj3 values('6F','이코노미석','AC0101',6,'A001',0);
+
+
+
+
+-- 대한민국
+insert into airport values ('인천', 'ICN' ,'대한민국', '대한민국');
+insert into airport values ('부산', 'PUS', '대한민국', '대한민국');
+insert into airport values ('제주', 'CJU', '대한민국', '대한민국');
+
+-- 동북아시아
+insert into airport values ('도쿄', 'NRT', '일본', '동북아시아');
+insert into airport values ('오사카' , 'ITM', '일본', '동북아시아');
+insert into airport values ('후쿠오카', 'FUK', '일본', '동북아시아');
+insert into airport values ('베이징' , 'PEK', '중국', '동북아시아');
+insert into airport values ('상하이', 'SHA', '중국', '동북아시아');
+insert into airport values ('칭다오', 'TAO', '중국', '동북아시아');
+
+--동남아시아/서남아시아
+insert into airport values ('방콕', 'BKK', '태국', '동남아시아/서남아시아');
+insert into airport values ('치앙마이', 'CNX', '태국', '동남아시아/서남아시아');
+insert into airport values ('푸켓', 'HKT', '태국', '동남아시아/서남아시아');
+insert into airport values ('하노이', 'HAN', '베트남', '동남아시아/서남아시아');
+insert into airport values ('다낭', 'DAD', '베트남', '동남아시아/서남아시아');
+insert into airport values ('덴파사르(발리)', 'DPS', '인도네시아', '동남아시아/서남아시아');
+insert into airport values ('자카르타', 'CGK', '인도네시아', '동남아시아/서남아시아');
+
+-- 미주
+insert into airport values ('뉴욕/존 F.케네디', 'NY', '미국', '미주');
+insert into airport values ('샌프라시스코', 'CA', '미국', '미주');
+insert into airport values ('시애틀/타코마', 'WA', '미국','미주');
+insert into airport values ('몬트리올', 'YUL', '캐나다', '미주');
+insert into airport values ('벤쿠버', 'YVR', '캐나다', '미주');
+
+-- 대양주/괌
+insert into airport values ('괌', 'GUM','괌','대양주/괌');
+insert into airport values ('브리즈번','BNE','호주','대양주/괌');
+insert into airport values ('시드니/킹즈퍼드 스미스','SYD','호주','대양주/괌');
+insert into airport values ('오클랜드','AKL','뉴질랜드','대양주/괌');
+
+
+
+create sequence seq start with 123000;
+
+commit;
+
+
+select * from seat_prj3;
+select * from flight_prj3;
+select * from resvation_prj3;
+select * from customer_prj3;
+select * from aircraft_prj3;
+select * from airport;
+
+
+drop table aircraft_prj3;
+

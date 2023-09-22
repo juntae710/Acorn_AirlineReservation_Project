@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="toBtn"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="번회"/>
-			<item value="insertRes"/>
+			<item value="toBtn"/>
+			<item value="btww"/>
+			<item value="block"/>
+			<item value="fromBtn"/>
+			<item value="send(&apos;fromBtn&apos;)"/>
 			<item value="departure"/>
-			<item value=".flightclass "/>
-			<item value="bsnBtn"/>
-			<item value="endp"/>
-			<item value="flightclass"/>
-			<item value="ednp"/>
-			<item value="selectdate"/>
-			<item value="Date"/>
-			<item value="overflow"/>
-			<item value="x"/>
-			<item value="alert"/>
-			<item value="ale"/>
-			<item value="dateBtn"/>
+			<item value="$(&apos;.departure&apos;).css(&quot;display&quot;, &quot;none&quot;);"/>
+			<item value="root cause"/>
+			<item value="try"/>
+			<item value="selectDate"/>
+			<item value="조회할"/>
+			<item value=" 조회할"/>
+			<item value="조회할수"/>
+			<item value="예약번호를"/>
+			<item value="id"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1408"/>
-		<item key="DIALOG_Y_ORIGIN" value="506"/>
+		<item key="DIALOG_X_ORIGIN" value="1414"/>
+		<item key="DIALOG_Y_ORIGIN" value="557"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

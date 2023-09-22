@@ -156,6 +156,7 @@ margin-top:40px;
 }
 .cnfqkfdlf{
 width: 40%;
+margin: 0 auto;
 }
 .cnfqkfdlf p{
 margin-top:40px; 
@@ -215,6 +216,8 @@ function endp3() {
 }
 	function send(buttonId) {
 		$('.departure').css("display", "block");
+		$('.flightclass').css("display", "none");
+	    $('.selectdate').css("display", "none");
 		$.ajax({
 			type : "post",
 			dataType : "json",
@@ -250,15 +253,19 @@ function endp3() {
 		selected.innerText = selected.value
 		if(buttonId == "fromBtn"){
 		    document.getElementById("fromData").value = target.innerText;
+		  
 	    }
 	    else if(buttonId == "toBtn"){
 	    	document.getElementById("toData").value = target.innerText;
+	    	   
 	    }
 	    $('.departure').css("display","none");
 	}
 
 	function selectDate() {
 		$('.selectdate').css("display", "block");
+		$('.departure').css("display", "none");
+		$('.flightclass').css("display", "none");
 		let now_utc = Date.now()
 		let timeOff = new Date().getTimezoneOffset() * 60000;
 		let today = new Date(now_utc - timeOff).toISOString().split("T")[0];
@@ -273,6 +280,11 @@ function endp3() {
 	}
 	function databtn() {
 		let date = $('#Date').val();
+		$('.flightclass').css("display", "none");
+	    $('.selectdate').css("display", "none");
+		$('.departure').css("display", "none");
+
+	    
 		let fromBtn = document.getElementById("fromBtn").value;
 		let toBtn = document.getElementById("toBtn").value;
 		if (date == "" || fromBtn == "" || toBtn == "") {
@@ -293,6 +305,9 @@ function endp3() {
 	}
 	function btnGrade() {
 		$('.flightclass').css("display", "block");
+		$('.selectdate').css("display", "none");
+		$('.departure').css("display", "none");
+
 	}
 </script>
 </head>

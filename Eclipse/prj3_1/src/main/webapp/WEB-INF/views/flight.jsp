@@ -174,6 +174,10 @@ margin-top: 30px;
 
 	</header>
 	<section class="bg">
+		<% 
+try {
+    // 예외가 발생할 수 있는 코드
+%>
 			<div class="mwrap">
 		<%
 		ArrayList<Schedule> sheduleList = (ArrayList<Schedule>) session.getAttribute("scheduleList");
@@ -181,7 +185,7 @@ margin-top: 30px;
 		String fromCode = (String) session.getAttribute("fromCode");
 		String toCode = (String) session.getAttribute("toCode");
 		%>
-	
+		
 			<h2>항공편 선택</h2>
 			<h3>
 				가는편
@@ -323,7 +327,22 @@ margin-top: 30px;
 			<%
 			}
 			%>
+		
 		</div>
+		
+<%
+} catch (Exception e) {
+    // 예외 처리 로직
+    %>
+    <script type="text/javascript">
+    alert("없는 항공편입니다.")
+   	window.location.href="<%=request.getContextPath()%>/index.do";
+   	</script>
+    <%
+    e.printStackTrace();
+}
+%>
+
 	</section>
 	<footer>
 		<div class="footer_info">

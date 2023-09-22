@@ -167,6 +167,21 @@ margin-top: 30px;
 
 	</header>
 	<section class="bg">
+	<%
+		Schedule f = (Schedule) request.getAttribute("fromCode");
+		Schedule f2 = (Schedule) request.getAttribute("toCode");
+		Schedule f3 = (Schedule) request.getAttribute("scheduleList");
+
+			// System.out.println("f=" + f);
+			if (f == null && f2 == null && f3 == null ) {
+			%>
+			<script> 
+			alert("없는 항공편입니다.")
+   						window.location.href="<%=request.getContextPath()%>/index.do";
+			</script>
+			<%
+			} else {
+		%>
 		<div class="mwrap">
 <%
 ArrayList<Schedule> sheduleList = (ArrayList<Schedule>)session.getAttribute("scheduleList");
@@ -269,6 +284,7 @@ String toCode = (String)session.getAttribute("toCode");
 	
 <%}%>
 		</div>
+		<%}%>
 </section>
 <footer>
 		<div class="footer_info">

@@ -286,7 +286,7 @@ form input, .sbtn {
 						<td class="stable3"><a
 							href="<%=request.getContextPath()%>/smain" class="check">예 약
 								조 회 </a></td>
-						<td class="stable4"><a href="" class="check">개인정보 수정</a></td>
+						<td class="stable4"><a href="<%=request.getContextPath()%>/UUA.do" class="check">개인정보 수정</a></td>
 					</tr>
 					<tr>
 						<td id="aaa" colspan="2">

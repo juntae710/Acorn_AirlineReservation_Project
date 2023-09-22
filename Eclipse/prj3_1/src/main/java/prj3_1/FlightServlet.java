@@ -36,13 +36,16 @@ public class FlightServlet extends HttpServlet{
 		session.setAttribute("grade", selectedGrade);
 		session.setAttribute("fromCode", splitFrom[0]);
 		session.setAttribute("toCode", splitTo[0]);
-		if(selectedGrade.equals("이코노미석")) {
-			
-			req.getRequestDispatcher("WEB-INF/views/flight.jsp").forward(req, resp);
-		}
-		else{
-			req.getRequestDispatcher("WEB-INF/views/flightBsn.jsp").forward(req, resp);
-		}
+		
+			if(selectedGrade.equals("이코노미석")) {
+				
+				req.getRequestDispatcher("WEB-INF/views/flight.jsp").forward(req, resp);
+			}
+			else{
+				req.getRequestDispatcher("WEB-INF/views/flightBsn.jsp").forward(req, resp);
+			}
+		
+		
 
 	}
 
