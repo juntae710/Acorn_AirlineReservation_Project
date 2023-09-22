@@ -8,28 +8,28 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="번회"/>
+			<item value="insertRes"/>
+			<item value="departure"/>
+			<item value=".flightclass "/>
+			<item value="bsnBtn"/>
+			<item value="endp"/>
+			<item value="flightclass"/>
+			<item value="ednp"/>
+			<item value="selectdate"/>
+			<item value="Date"/>
+			<item value="overflow"/>
+			<item value="x"/>
 			<item value="alert"/>
 			<item value="ale"/>
-			<item value="al"/>
-			<item value="가는편"/>
-			<item value="bs"/>
-			<item value="infoItem"/>
-			<item value="bsn_flightList"/>
-			<item value="비즈"/>
-			<item value="border"/>
-			<item value="eco_flightList"/>
-			<item value="economy"/>
-			<item value="depInfo"/>
-			<item value="eco_flightList&apos;"/>
-			<item value="eco_flight"/>
-			<item value="ecoflight"/>
+			<item value="dateBtn"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1397"/>
-		<item key="DIALOG_Y_ORIGIN" value="335"/>
+		<item key="DIALOG_X_ORIGIN" value="1408"/>
+		<item key="DIALOG_Y_ORIGIN" value="506"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

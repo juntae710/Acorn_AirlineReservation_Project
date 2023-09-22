@@ -13,29 +13,32 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
-@WebServlet("/booking.do")
-public class BookingServlet extends HttpServlet{
+@WebServlet("/bookingcheck.do")
+public class BookingCompServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
-		
 		HttpSession session  = req.getSession();
-		
-		String seatnum = req.getParameter("fromData");
-		session.setAttribute("seatnum",seatnum);
 		String id = (String)session.getAttribute("id");
+		String pass = req.getParameter("passport");
+		String seatnum = (String)session.getAttribute("seatnum");
 		String fcode= (String)session.getAttribute("selectFlight");
-		
+		String grade= (String)session.getAttribute("selectGrade");
 		AirlineService as = new AirlineService();
-		Flight sc = as.getflight(fcode);
-		session.setAttribute("fightInfo",sc);
-		L_joinService ps = new L_joinService();
-		L_Customer c = ps.selectByid(id);
-		session.setAttribute("userinfo", c);
-		System.out.println(c);
-		req.getRequestDispatcher("WEB-INF/views/bookingCheck.jsp").forward(req, resp);
+		as.insertRes(fcode, id, seatnum);
+		int resno = as.findresNo(fcode, id);
+		as.updatecs(pass, resno, id);
+		if(grade.equals("이코노미석")){
+			as.updateEcoNum(fcode);
+		}
+		else {
+			as.updateBsnNum(fcode);
+		}
+		as.seatState(seatnum);
+		session.setAttribute("resno", resno);
+		req.getRequestDispatcher("WEB-INF/views/bookingComp.jsp").forward(req, resp);
 		
 
 	}

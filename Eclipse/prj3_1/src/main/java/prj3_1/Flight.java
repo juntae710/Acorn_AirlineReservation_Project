@@ -1,26 +1,26 @@
 package prj3_1;
-import java.sql.Date;
-import java.time.LocalDate;
+
+import java.util.Date;
+
 public class Flight {
 	String fcode;
-	String departure;
-	String arrival;
+	String dep;
+	String arr;
 	Date sday;
 	Date eday;
 	String stime;
 	String etime;
 	String airnum;
-	
 	public Flight() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public Flight(String fcode, String departure, String arrival, Date sday, Date eday, String stime, String etime,
+	
+	public Flight(String fcode, String dep, String arr, Date sday, Date eday, String stime, String etime,
 			String airnum) {
 		super();
 		this.fcode = fcode;
-		this.departure = departure;
-		this.arrival = arrival;
+		this.dep = dep;
+		this.arr = arr;
 		this.sday = sday;
 		this.eday = eday;
 		this.stime = stime;
@@ -31,39 +31,56 @@ public class Flight {
 	public String getFcode() {
 		return fcode;
 	}
-
-	public String getDeparture() {
-		return departure;
+	public void setFcode(String fcode) {
+		this.fcode = fcode;
 	}
-
-	public String getArrival() {
-		return arrival;
+	public String getDep() {
+		return dep;
 	}
-
+	public void setDep(String dep) {
+		this.dep = dep;
+	}
+	public String getArr() {
+		return arr;
+	}
+	public void setArr(String arr) {
+		this.arr = arr;
+	}
 	public Date getSday() {
 		return sday;
 	}
-
+	public void setSday(Date sday) {
+		this.sday = sday;
+	}
 	public Date getEday() {
 		return eday;
 	}
-
+	public void setEday(Date eday) {
+		this.eday = eday;
+	}
 	public String getStime() {
 		return stime;
 	}
-
+	public void setStime(String stime) {
+		this.stime = stime;
+	}
 	public String getEtime() {
 		return etime;
 	}
-
+	public void setEtime(String etime) {
+		this.etime = etime;
+	}
 	public String getAirnum() {
 		return airnum;
+	}
+	public void setAirnum(String airnum) {
+		this.airnum = airnum;
 	}
 
 	@Override
 	public String toString() {
-		return "Flight [fcode=" + fcode + ", departure=" + departure + ", arrival=" + arrival + ", sday=" + sday
-				+ ", eday=" + eday + ", stime=" + stime + ", etime=" + etime + ", airnum=" + airnum + "]";
+		return "Flight [fcode=" + fcode + ", dep=" + dep + ", arr=" + arr + ", sday=" + sday + ", eday=" + eday
+				+ ", stime=" + stime + ", etime=" + etime + ", airnum=" + airnum + "]";
 	}
 	
 	

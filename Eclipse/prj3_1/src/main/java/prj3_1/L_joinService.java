@@ -1,6 +1,9 @@
 package prj3_1;
 
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class L_joinService {
@@ -20,6 +23,14 @@ public class L_joinService {
 	public boolean check(String id) {
 		return dao.selectOne(id);
 		
+	} 
+    public L_Customer selectByid(String inputid) {
+		
+    	L_Customer c = dao.selectCustomer(inputid);
+    	return c;
+		
+		
 	}
+	
 
 }

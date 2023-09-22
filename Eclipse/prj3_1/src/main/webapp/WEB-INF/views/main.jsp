@@ -21,11 +21,53 @@ section {
 }
 
 .departure {
-	height: 300px;
+	height: 270px;
 	width: 300px;
 	display: none;
 	background-color: white;
+	overflow: scroll;
+	border-radius: 20px;
+	padding: 10px;
+	margin-top: 5px;
+
 }
+.departure p, #endp, #endp2 , #endp3 ,.flightclass p{
+display: inline-block;
+}
+.departure::-webkit-scrollbar {
+  display: none;
+}
+#endp{
+font-weight: bolder;
+margin-left: 130px;
+}
+#endp2{
+font-weight: bolder;
+}
+#endp3{
+font-weight: bolder;
+margin-left: 65px;
+
+}
+
+#ecoBtn, #bsnBtn{
+	background-color: #B8E9FF;
+	height: 30px;
+	width: 100px;
+	border-radius: 20px;
+	border: none;
+	margin-top: 25px;
+	font-weight: bolder;
+	background-color: #B8E6E1;
+	color: black;
+	border: 1px solid gray; /* 테두리 색상 추가 */
+}
+
+#ecoBtn:active, #bsnBtn:active {
+	background-color: rgb(172, 237, 244);
+	border: none;
+}
+
 
 .selectdate {
 	height: 300px;
@@ -42,11 +84,14 @@ section {
 }
 
 .flightclass {
-	height: 150px;
-	width: 250px;
+	height: 120px;
+	width: 210px;
 	display: none;
 	margin-left: 635px;
 	background-color: white;
+	padding: 10px;
+	margin-top: 5px;
+	border-radius: 20px;
 }
 
 .btn {
@@ -159,6 +204,15 @@ background-color: #fccdd66e;
 
 </style>
 <script>
+function endp() {
+	$('.departure').css("display", "none");
+}
+function endp2() {
+	$('.selectdate').css("display", "none");
+}
+function endp3() {
+	$('.flightclass').css("display", "none");
+}
 	function send(buttonId) {
 		$('.departure').css("display", "block");
 		$.ajax({
@@ -186,17 +240,21 @@ background-color: #fccdd66e;
 
 	}
 
-	function select(buttonId, target) {
+	function select(buttonId, target){
 		let selected = document.getElementById(buttonId);
-		selected.value = target.innerText;
+		let splitStr = target.innerText;
+		let parts = splitStr.split(" - ");
+		let code = parts[0];         
+		let city = parts[1];
+		selected.value  = code + "\n" + city;
 		selected.innerText = selected.value
-		if (buttonId == "fromBtn") {
-			document.getElementById("fromData").value = target.innerText;
-		} else if (buttonId == "toBtn") {
-			document.getElementById("toData").value = target.innerText;
-		}
-		alert(selected.value)
-		$('.departure').css("display", "none");
+		if(buttonId == "fromBtn"){
+		    document.getElementById("fromData").value = target.innerText;
+	    }
+	    else if(buttonId == "toBtn"){
+	    	document.getElementById("toData").value = target.innerText;
+	    }
+	    $('.departure').css("display","none");
 	}
 
 	function selectDate() {
@@ -331,15 +389,15 @@ background-color: #fccdd66e;
 			</div>
 			<div class="deBox">
 			<div class="departure">
-				<p>지역과 도시 선택</p>
+				<p>지역과 도시 선택 </p><div id="endp" onclick="endp()">[X]</div>
 				<div id="departureList"></div>
 
 			</div>
 			<div class="selectdate">
-				<input type="date" id="Date" name="dateData">
+				<input type="date" id="Date" name="dateData"><div id="endp2" onclick="endp2()">[X]</div>
 			</div>
 			<div class="flightclass">
-				<p>좌석등급선택</p>
+				<p>좌석등급선택</p><div id="endp3" onclick="endp3()">[X]</div>
 				<button type="button" onclick="selectGrade('ecoBtn')" id="ecoBtn">이코노미석</button>
 				<button type="button" onclick="selectGrade('bsnBtn')" id="bsnBtn">비즈니스석</button>
 				<input type="hidden" id="selectedGrade" name="selectedGrade"

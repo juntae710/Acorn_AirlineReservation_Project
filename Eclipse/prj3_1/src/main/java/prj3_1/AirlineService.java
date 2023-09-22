@@ -55,7 +55,29 @@ public class AirlineService {
     	ArrayList<Seat> seatList  = dao.getAllSeat();
     	return seatList;
     }
+	public Flight getflight(String fcode) {
+		Flight s = dao.selectFlight(fcode);
+		return s;
+	}
+	public void insertRes(String fno, String cid, String snum) {
+		dao.insertBooking(fno, cid, snum);
+	}
+	public int findresNo(String fcode, String cid) {
+		return dao.findNo(fcode, cid);
+	}
 	
+	public void updatecs(String pasno,int resno,String cid) {
+		dao.updateCustomer(pasno, resno, cid);
+	}
+	public void updateEcoNum(String fcode) {
+		dao.updateEco(fcode);
+	}
+	public void updateBsnNum(String fcode) {
+		dao.updateBsn(fcode);
+	}
+	public void seatState(String seatNum) {
+		dao.setState(seatNum);
+	}
 	public static void main(String args[]) {
 		AirlineService as = new AirlineService();
 		//JSONArray js = as.getAirportJSON("인");
@@ -70,6 +92,8 @@ public class AirlineService {
 		
 		
 	}
+	
+	
 	
 
 }

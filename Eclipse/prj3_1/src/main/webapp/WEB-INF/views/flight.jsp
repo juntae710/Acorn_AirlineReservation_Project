@@ -174,13 +174,14 @@ margin-top: 30px;
 
 	</header>
 	<section class="bg">
+			<div class="mwrap">
 		<%
 		ArrayList<Schedule> sheduleList = (ArrayList<Schedule>) session.getAttribute("scheduleList");
 		String grade = (String) session.getAttribute("grade");
 		String fromCode = (String) session.getAttribute("fromCode");
 		String toCode = (String) session.getAttribute("toCode");
 		%>
-		<div class="mwrap">
+	
 			<h2>항공편 선택</h2>
 			<h3>
 				가는편

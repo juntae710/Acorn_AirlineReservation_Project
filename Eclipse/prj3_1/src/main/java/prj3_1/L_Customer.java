@@ -8,7 +8,7 @@ public class L_Customer {
 	String pw;
 	String name;
 	String phone;
-	String resno;
+	int resno;
 	String pasno;
 	String gender;
 	
@@ -37,10 +37,10 @@ public class L_Customer {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getResno() {
+	public int getResno() {
 		return resno;
 	}
-	public void setResno(String resno) {
+	public void setResno(int resno) {
 		this.resno = resno;
 	}
 	public String getPasno() {
@@ -57,7 +57,7 @@ public class L_Customer {
 	}
 	
 	
-	public L_Customer(String id, String pw, String name, String phone, String resno, String pasno, String gender) {
+	public L_Customer(String id, String pw, String name, String phone, int resno, String pasno, String gender) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -67,7 +67,15 @@ public class L_Customer {
 		this.pasno = pasno;
 		this.gender = gender;
 	}
-	
+	public L_Customer(String id, String pw, String name, String phone, String pasno, String gender) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.phone = phone;
+		this.pasno = pasno;
+		this.gender = gender;
+	}
 	
 	public L_Customer(String id) {
 		super();

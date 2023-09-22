@@ -61,7 +61,7 @@ public class L_joinDAO {
 				String pw = rs.getString(2);
 				String name = rs.getString(3);
 				String phone = rs.getString(4);
-				String resno = rs.getString(5);
+				int resno = rs.getInt(5);
 				String pasno = rs.getString(6);
 				String gender = rs.getString(7);
 				L_Customer c = new L_Customer(id, pw, name, phone, resno, pasno, gender);
@@ -78,7 +78,41 @@ public class L_joinDAO {
 		
 		
 	}
-	
+public L_Customer selectCustomer(String inputid) {
+		
+		Connection connection = dbcon();
+		
+		String sql = "select * from customer_prj3 where id=?";
+		
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		L_Customer c = null;
+		try {
+			pst = connection.prepareStatement(sql);
+			pst.setString(1,inputid);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				String id = rs.getString(1);
+				String pw = rs.getString(2);
+				String name = rs.getString(3);
+				String phone = rs.getString(4);
+				int resno = rs.getInt(5);
+				String pasno = rs.getString(6);
+				String gender = rs.getString(7);
+				c = new L_Customer(id, pw, name, phone, resno, pasno, gender);
+			
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		close(pst, rs, connection);
+		return c;
+		
+		
+	}
 	
 	public void insert(L_Customer customer) throws SQLException {
 		
@@ -108,7 +142,7 @@ public class L_joinDAO {
 		
 	}
 	
-public  boolean selectOne(String id) {
+    public  boolean selectOne(String id) {
 		
 		//db 연결
 		Connection connection = dbcon();
@@ -183,7 +217,7 @@ public  boolean selectOne(String id) {
 
 	    return false;
 	}
-
+    
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

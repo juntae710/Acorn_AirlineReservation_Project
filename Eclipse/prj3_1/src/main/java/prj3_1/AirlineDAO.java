@@ -126,6 +126,55 @@ public class AirlineDAO {
 		close(con, pst, rs);
 		return sList;
    }
+	public void updateEco(String fcode)
+	{
+		Connection con = dbcon();
+		String sql = " UPDATE aircraft_prj3"
+				   + " SET econum = econum - 1"
+				   + " WHERE airnum IN ("
+				   + " SELECT f.airnum"
+				   + " FROM flight_prj3 f"
+				   + " WHERE f.fcode = ?"
+				   + ")";
+				
+		PreparedStatement pst = null;
+
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1,fcode);
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		close(con, pst);
+		
+   }
+   public void updateBsn(String fcode)
+	{
+		Connection con = dbcon();
+		String sql = " UPDATE aircraft_prj3"
+				   + " SET BUSINESSNUM = BUSINESSNUM - 1"
+				   + " WHERE airnum IN ("
+				   + "    SELECT f.airnum"
+				   + "    FROM flight_prj3 f"
+				   + "    WHERE f.fcode = ?"
+				   + ")";
+				
+		PreparedStatement pst = null;
+
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1,fcode);
+			pst.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		close(con, pst);
+		
+   }
    public ArrayList<Seat> getAllSeat(){
 	    Connection con = dbcon();
 		String sql = " select *"
@@ -155,9 +204,9 @@ public class AirlineDAO {
    
    public void bookingSeat(String seat,String flightCode){
 	    Connection con = dbcon();
-		String sql = "update seat_prj3"
-				   + "set seat_prj3.seatstate = 1"
-				   + "where seat_prj3.seatnum=?  and seat_prj3.fcode=?";
+		String sql = " update seat_prj3"
+				   + " set seat_prj3.seatstate = 1"
+				   + " where seat_prj3.seatnum=?  and seat_prj3.fcode=?";
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		Seat s = null;
@@ -174,27 +223,45 @@ public class AirlineDAO {
    }
    public void insertBooking(String fno, String cid, String snum){
 	    Connection con = dbcon();
-	    String sql1 = "create sequence seq start with 123000";
-		String sql = "insert into resvation_prj3 values (seq.nextval,?,?,?)";
+		String sql = " insert into resvation_prj3 values (seq.nextval,?,?,?)";
 		PreparedStatement pst = null;
-		ResultSet rs = null;
+	 
 		try {
-			pst = con.prepareStatement(sql1);
-			pst.executeQuery();
 			pst = con.prepareStatement(sql);
-			pst.setString(2, fno);
-			pst.setString(3, cid);
-			pst.setString(4, snum);
-			
+			pst.setString(1, fno);
+			pst.setString(2, cid);
+			pst.setString(3, snum);
+			pst.executeUpdate();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		close(con, pst, rs);
+		close(con, pst );
 		
    }
-   
+   public int findNo(String fcode, String cid) {
+	    Connection con = dbcon();
+		String sql = " select * from resvation_prj3 where resvation_prj3.fcode=? and resvation_prj3.id=?";
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		int resno = 0;
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1,fcode);
+			pst.setString(2, cid);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				resno = rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close(con, pst,rs );
+		return resno;
+   }
    public ArrayList<Booking> getBooking(){
 	    Connection con = dbcon();
 		String sql = " select *"
@@ -219,9 +286,76 @@ public class AirlineDAO {
 		close(con, pst, rs);
 		return sList;
    }
+   
+	public Flight selectFlight(String id) {
+		Connection con = dbcon();
+		String sql = " select * from flight_prj3 where fcode=?";
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		Flight f = null;
+		
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, id);
+			rs = pst.executeQuery();
+			while(rs.next()){
+				String fcode = rs.getString(1);
+				String departure = rs.getString(2);
+				String arriaval = rs.getString(3);
+				Date sday = rs.getDate(4);
+				Date eday = rs.getDate(5);
+				String stime = rs.getString(6);
+				String etime = rs.getString(7);
+				String airnum = rs.getString(8);
+			
+				f = new Flight(fcode,departure,arriaval,sday,eday,stime,etime,airnum);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		close(con, pst, rs);
+		return f;
+	}
 	
-	
-	
+	public void updateCustomer(String pasno,int resno,String cid) {
+		Connection con = dbcon();
+		String sql = " UPDATE customer_prj3"
+				   + " SET PASNO = ?, resno = ? "
+				   + " WHERE ID = ?";
+		PreparedStatement pst = null;
+	 
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, pasno);
+			pst.setInt(2, resno);
+			pst.setString(3, cid);
+			pst.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close(con, pst);
+	}
+	public void setState(String seatNum) {
+		Connection con = dbcon();
+		String sql = " update seat_prj3"
+				   + " set seatstate=1"
+				   + " where SEATNUM=?";
+		PreparedStatement pst = null;
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, seatNum);	
+			pst.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close(con, pst );
+	}
 	public void close( AutoCloseable ...a) {
 		for( AutoCloseable  item : a) {
 		   try {
@@ -244,8 +378,17 @@ public class AirlineDAO {
 		
 		//ArrayList<Flight> flist = dao.getFlight("인천", "부산","2023-09-22");
 		//System.out.println(flist);
-		ArrayList<Seat> sLsit = dao.getAllSeat();
-		System.out.println(sLsit);
+		//ArrayList<Seat> sLsit = dao.getAllSeat();
+		////System.out.println(sLsit);
+		//Flight s = dao.selectFlight("AC0101");
+		//System.out.println(s.toString());
+		dao.insertBooking("AC0101", "test01", "1B");
+	    //ArrayList<Booking> s = dao.getBooking();
+		//System.out.println(s);
+		int result = dao.findNo("AC0101", "test01");
+		System.out.println(result);
+		
+		
 	}
 	
 
