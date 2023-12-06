@@ -1,3 +1,4 @@
 browser-choice=1
 browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="4">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Mozilla Firefox\\firefox.exe" name\="Firefox"/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="%browserInternetExplorer"/>\r\n<external location\="C\:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" name\="Microsoft Edge"/>\r\n<external location\="C\:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" name\="Chrome"/>\r\n</web-browsers>
 eclipse.preferences.version=1
+internalWebBrowserHistory=file\:/C\:/Users/hbi/Desktop/prj3_team1/Acorn_AirlineReservation_Project/Eclipse/.metadata/.plugins/org.springsource.ide.eclipse.commons.gettingstarted/dashboard/1701845121282/index.html|*|file\:/C\:/sts-3.9.17.RELEASE/plugins/org.springsource.ide.eclipse.commons.gettingstarted_3.9.17.202106210631-RELEASE/resources/welcome/index.html|*|
